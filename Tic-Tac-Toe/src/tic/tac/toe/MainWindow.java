@@ -56,22 +56,67 @@ public class MainWindow extends javax.swing.JFrame {
                 jButton4MouseClicked(evt);
             }
         });
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton5.setPreferredSize(new java.awt.Dimension(100, 100));
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jButton6.setPreferredSize(new java.awt.Dimension(100, 100));
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jButton7.setPreferredSize(new java.awt.Dimension(100, 100));
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
 
         jButton8.setPreferredSize(new java.awt.Dimension(100, 100));
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
 
         jButton9.setPreferredSize(new java.awt.Dimension(100, 100));
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
 
         jButton10.setPreferredSize(new java.awt.Dimension(100, 100));
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
 
         jButton11.setPreferredSize(new java.awt.Dimension(100, 100));
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
 
         jButton12.setPreferredSize(new java.awt.Dimension(100, 100));
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -140,6 +185,10 @@ public class MainWindow extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+
+    }//GEN-LAST:event_jButton4MouseClicked
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         if(isX)
         {
             jButton4.setText("X");
@@ -151,11 +200,122 @@ public class MainWindow extends javax.swing.JFrame {
             isX=true;
         }
         jButton4.setEnabled(false);
-    }//GEN-LAST:event_jButton4MouseClicked
+    }//GEN-LAST:event_jButton4ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+         if(isX)
+        {
+            jButton5.setText("X");
+            isX=false;
+        }
+        else
+        {
+            jButton5.setText("O");
+            isX=true;
+        }
+        jButton5.setEnabled(false);
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        if(isX)
+        {
+            jButton6.setText("X");
+            isX=false;
+        }
+        else
+        {
+            jButton6.setText("O");
+            isX=true;
+        }
+        jButton6.setEnabled(false);
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+         if(isX)
+        {
+            jButton7.setText("X");
+            isX=false;
+        }
+        else
+        {
+            jButton7.setText("O");
+            isX=true;
+        }
+        jButton7.setEnabled(false);
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        if(isX)
+        {
+            jButton8.setText("X");
+            isX=false;
+        }
+        else
+        {
+            jButton8.setText("O");
+            isX=true;
+        }
+        jButton8.setEnabled(false);
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        if(isX)
+        {
+            jButton9.setText("X");
+            isX=false;
+        }
+        else
+        {
+            jButton9.setText("O");
+            isX=true;
+        }
+        jButton9.setEnabled(false);
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+       if(isX)
+        {
+            jButton10.setText("X");
+            isX=false;
+        }
+        else
+        {
+            jButton10.setText("O");
+            isX=true;
+        }
+        jButton10.setEnabled(false);
+    }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+         if(isX)
+        {
+            jButton11.setText("X");
+            isX=false;
+        }
+        else
+        {
+            jButton11.setText("O");
+            isX=true;
+        }
+        jButton11.setEnabled(false);
+    }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        if(isX)
+        {
+            jButton12.setText("X");
+            isX=false;
+        }
+        else
+        {
+            jButton12.setText("O");
+            isX=true;
+        }
+        jButton12.setEnabled(false);
+    }//GEN-LAST:event_jButton12ActionPerformed
+     
+    
+  
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
