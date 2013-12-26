@@ -15,7 +15,8 @@ public class MainWindow extends javax.swing.JFrame {
     /**
      * Creates new form MainWindow
      */
-    boolean isX=true;
+    public boolean isX=true;
+    String btn4, btn5, btn6, btn7, btn8, btn9, btn10, btn11, btn12, win;
     public MainWindow() {
         initComponents();
     }
@@ -29,6 +30,7 @@ public class MainWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jDialog1 = new javax.swing.JDialog();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -42,6 +44,23 @@ public class MainWindow extends javax.swing.JFrame {
         jButton11 = new javax.swing.JButton();
         jButton12 = new javax.swing.JButton();
 
+        jDialog1.setBackground(java.awt.Color.darkGray);
+        jDialog1.setBounds(new java.awt.Rectangle(0, 0, 250, 100));
+        jDialog1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jDialog1.setFont(new java.awt.Font("Adobe Arabic", 1, 18)); // NOI18N
+        jDialog1.setType(java.awt.Window.Type.POPUP);
+
+        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
+        jDialog1.getContentPane().setLayout(jDialog1Layout);
+        jDialog1Layout.setHorizontalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jDialog1Layout.setVerticalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jButton1.setLabel("Start");
@@ -51,11 +70,6 @@ public class MainWindow extends javax.swing.JFrame {
         jButton3.setLabel("Player Vs Computer");
 
         jButton4.setPreferredSize(new java.awt.Dimension(100, 100));
-        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton4MouseClicked(evt);
-            }
-        });
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -125,12 +139,6 @@ public class MainWindow extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton3)
-                            .addComponent(jButton1)
-                            .addComponent(jButton2)))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(203, 203, 203)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -138,7 +146,7 @@ public class MainWindow extends javax.swing.JFrame {
                                     .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -148,10 +156,16 @@ public class MainWindow extends javax.swing.JFrame {
                                     .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(12, 12, 12)
+                                .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton3)
+                            .addComponent(jButton1)
+                            .addComponent(jButton2))))
                 .addContainerGap(207, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -184,10 +198,141 @@ public class MainWindow extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+    public void CheckWin(){
+        
+        if(btn4.equals(btn5) && btn4.equals(btn6)) {
+            if (!isX)
+            {
+             win =  "Player one wins";   
+            }
+            else 
+            {
+             win = "Player two wins";
+            }
+            jDialog1.setVisible(true);
+            jDialog1.setTitle(win);
+            done();
+          }
 
-    }//GEN-LAST:event_jButton4MouseClicked
-
+        if(btn4.equals(btn7) && btn4.equals(btn10)) 
+        {
+            if (!isX)
+            {
+             win =  "Player one wins";   
+            }
+            else 
+            {
+             win = "Player two wins";
+            }
+            jDialog1.setVisible(true);
+            jDialog1.setTitle(win); 
+            done();
+        }
+        
+       if(btn4.equals(btn8) && btn4.equals(btn12)) 
+       {
+            if (!isX)
+            {
+             win =  "Player one wins";   
+            }
+            else 
+            {
+             win = "Player two wins";
+            }
+            jDialog1.setVisible(true);
+            jDialog1.setTitle(win);
+            done();
+       }
+       
+        if(btn5.equals(btn8) && btn5.equals(btn11)) 
+        {
+            if (!isX)
+            {
+             win =  "Player one wins";   
+            }
+            else 
+            {
+             win = "Player two wins";
+            }
+            jDialog1.setVisible(true);
+            jDialog1.setTitle(win); 
+            done();
+        }
+        
+        if(btn6.equals(btn9) && btn6.equals(btn12)) 
+        {
+            if (!isX)
+            {
+             win =  "Player one wins";   
+            }
+            else 
+            {
+             win = "Player two wins";
+            }
+            jDialog1.setVisible(true);
+            jDialog1.setTitle(win); 
+            done();
+        }
+        
+        if(btn6.equals(btn8) && btn6.equals(btn10)) 
+        {
+            if (!isX)
+            {
+             win =  "Player one wins";   
+            }
+            else 
+            {
+             win = "Player two wins";
+            }
+            jDialog1.setVisible(true);
+            jDialog1.setTitle(win); 
+            done();
+        }
+        
+        if(btn7.equals(btn8) && btn7.equals(btn9)) 
+        {
+            if (!isX)
+            {
+             win =  "Player one wins";   
+            }
+            else 
+            {
+             win = "Player two wins";
+            }
+            jDialog1.setVisible(true);
+            jDialog1.setTitle(win); 
+            done();        
+        }
+        
+        if(btn10.equals(btn11) && btn10.equals(btn12)) 
+        {
+            if (!isX)
+            {
+             win =  "Player one wins";   
+            }
+            else 
+            {
+             win = "Player two wins";
+            }
+            jDialog1.setVisible(true);
+            jDialog1.setTitle(win);
+            done();
+            
+        }        
+    }
+    
+    private void done(){
+            jButton4.setEnabled(false);
+            jButton5.setEnabled(false);
+            jButton6.setEnabled(false);
+            jButton7.setEnabled(false);
+            jButton8.setEnabled(false);
+            jButton9.setEnabled(false);
+            jButton10.setEnabled(false);
+            jButton11.setEnabled(false);
+            jButton12.setEnabled(false);
+     }
+    
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         if(isX)
         {
@@ -200,6 +345,10 @@ public class MainWindow extends javax.swing.JFrame {
             isX=true;
         }
         jButton4.setEnabled(false);
+        
+        btn4 = jButton4.getText();
+        CheckWin();
+         
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -214,6 +363,8 @@ public class MainWindow extends javax.swing.JFrame {
             isX=true;
         }
         jButton5.setEnabled(false);
+        btn5 = jButton5.getText();
+        CheckWin();
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -228,6 +379,8 @@ public class MainWindow extends javax.swing.JFrame {
             isX=true;
         }
         jButton6.setEnabled(false);
+        btn6 = jButton6.getText();
+        CheckWin();
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
@@ -242,6 +395,8 @@ public class MainWindow extends javax.swing.JFrame {
             isX=true;
         }
         jButton7.setEnabled(false);
+        btn7 = jButton7.getText();
+       CheckWin();
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
@@ -256,6 +411,8 @@ public class MainWindow extends javax.swing.JFrame {
             isX=true;
         }
         jButton8.setEnabled(false);
+        btn8 = jButton8.getText();
+        CheckWin();
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
@@ -270,6 +427,8 @@ public class MainWindow extends javax.swing.JFrame {
             isX=true;
         }
         jButton9.setEnabled(false);
+        btn9 = jButton9.getText();
+        CheckWin();
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
@@ -284,6 +443,8 @@ public class MainWindow extends javax.swing.JFrame {
             isX=true;
         }
         jButton10.setEnabled(false);
+        btn10 = jButton10.getText();
+        CheckWin();
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
@@ -298,6 +459,8 @@ public class MainWindow extends javax.swing.JFrame {
             isX=true;
         }
         jButton11.setEnabled(false);
+        btn11 = jButton11.getText();
+        CheckWin();
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
@@ -312,6 +475,8 @@ public class MainWindow extends javax.swing.JFrame {
             isX=true;
         }
         jButton12.setEnabled(false);
+        btn12 = jButton12.getText();
+        CheckWin();
     }//GEN-LAST:event_jButton12ActionPerformed
      
     
@@ -361,5 +526,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
+    private javax.swing.JDialog jDialog1;
     // End of variables declaration//GEN-END:variables
 }
