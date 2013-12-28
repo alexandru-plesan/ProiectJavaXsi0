@@ -5,18 +5,17 @@
  */
 
 package tic.tac.toe;
+import java.awt.event.WindowEvent;
+import java.util.*;
+import javax.swing.*;
 
-/**
- *
- * @author Alex
- */
 public class MainWindow extends javax.swing.JFrame {
 
     /**
      * Creates new form MainWindow
      */
     public boolean isX=true;
-    String btn4, btn5, btn6, btn7, btn8, btn9, btn10, btn11, btn12, win;
+    public String btn1="A", btn2="B", btn3="C", btn4="D", btn5="E", btn6="F", btn7="G", btn8="H", btn9="I", win;
     public MainWindow() {
         initComponents();
     }
@@ -31,6 +30,10 @@ public class MainWindow extends javax.swing.JFrame {
     private void initComponents() {
 
         jDialog1 = new javax.swing.JDialog();
+        jOptionPane1 = new javax.swing.JOptionPane();
+        jButtons = new javax.swing.JButton();
+        jButtonpvp = new javax.swing.JButton();
+        jButtonpvc = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -40,9 +43,6 @@ public class MainWindow extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
-        jButton12 = new javax.swing.JButton();
 
         jDialog1.setBackground(java.awt.Color.darkGray);
         jDialog1.setBounds(new java.awt.Rectangle(0, 0, 250, 100));
@@ -63,11 +63,32 @@ public class MainWindow extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setLabel("Start");
+        jButtons.setLabel("Start");
 
-        jButton2.setLabel("Player Vs Player");
+        jButtonpvp.setLabel("Player Vs Player");
 
-        jButton3.setLabel("Player Vs Computer");
+        jButtonpvc.setLabel("Player Vs Computer");
+
+        jButton1.setPreferredSize(new java.awt.Dimension(100, 100));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setPreferredSize(new java.awt.Dimension(100, 100));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setPreferredSize(new java.awt.Dimension(100, 100));
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setPreferredSize(new java.awt.Dimension(100, 100));
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -111,27 +132,6 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
-        jButton10.setPreferredSize(new java.awt.Dimension(100, 100));
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
-            }
-        });
-
-        jButton11.setPreferredSize(new java.awt.Dimension(100, 100));
-        jButton11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton11ActionPerformed(evt);
-            }
-        });
-
-        jButton12.setPreferredSize(new java.awt.Dimension(100, 100));
-        jButton12.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton12ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -139,68 +139,67 @@ public class MainWindow extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(203, 203, 203)
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButtonpvc)
+                            .addComponent(jButtons)
+                            .addComponent(jButtonpvp)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(188, 188, 188)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(12, 12, 12)
-                                .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton3)
-                            .addComponent(jButton1)
-                            .addComponent(jButton2))))
-                .addContainerGap(207, Short.MAX_VALUE))
+                                .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(222, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton1)
+                .addComponent(jButtons)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2)
+                .addComponent(jButtonpvp)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3)
-                .addGap(31, 31, 31)
+                .addComponent(jButtonpvc)
+                .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(59, Short.MAX_VALUE))
+                    .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(85, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public void CheckWin(){
-        
-        if(btn4.equals(btn5) && btn4.equals(btn6)) {
+    public void CheckWinLine(){
+     if(btn1.equals(btn2) && btn1.equals(btn3)) {
             if (!isX)
             {
              win =  "Player one wins";   
@@ -209,12 +208,26 @@ public class MainWindow extends javax.swing.JFrame {
             {
              win = "Player two wins";
             }
-            jDialog1.setVisible(true);
-            jDialog1.setTitle(win);
+           Object[] options = { "Start a new game", "Menu", "End"};
+           jOptionPane1.showMessageDialog(rootPane, win);
+           int option =   jOptionPane1.showOptionDialog(rootPane, "Do you want to start a new game?", "Choose an option", jOptionPane1.YES_NO_CANCEL_OPTION, jOptionPane1.QUESTION_MESSAGE, null, options, options[2]);
+            if( option == jOptionPane1.YES_OPTION)
+            {
+                  JFrame frame = new MainWindow(); 
+                  frame.setDefaultCloseOperation(MainWindow.EXIT_ON_CLOSE); 
+                  frame.setVisible(true);
+            }
+            else {
+                if(option == jOptionPane1.CANCEL_OPTION) {
+               WindowEvent windowClosing = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
+	       this.dispatchEvent(windowClosing);         
+                }
+                else {
+                }
+            }
             done();
           }
-
-        if(btn4.equals(btn7) && btn4.equals(btn10)) 
+     if(btn4.equals(btn5) && btn4.equals(btn6)) 
         {
             if (!isX)
             {
@@ -224,68 +237,23 @@ public class MainWindow extends javax.swing.JFrame {
             {
              win = "Player two wins";
             }
-            jDialog1.setVisible(true);
-            jDialog1.setTitle(win); 
-            done();
-        }
-        
-       if(btn4.equals(btn8) && btn4.equals(btn12)) 
-       {
-            if (!isX)
+           Object[] options = { "Start a new game", "Menu", "End"};
+           jOptionPane1.showMessageDialog(rootPane, win);
+           int option =   jOptionPane1.showOptionDialog(rootPane, "Do you want to start a new game?", "Choose an option", jOptionPane1.YES_NO_CANCEL_OPTION, jOptionPane1.QUESTION_MESSAGE, null, options, options[2]);
+            if( option == jOptionPane1.YES_OPTION)
             {
-             win =  "Player one wins";   
+                  JFrame frame = new MainWindow(); 
+                  frame.setDefaultCloseOperation(MainWindow.EXIT_ON_CLOSE); 
+                  frame.setVisible(true);
             }
-            else 
-            {
-             win = "Player two wins";
+            else {
+                if(option == jOptionPane1.CANCEL_OPTION) {
+               WindowEvent windowClosing = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
+	       this.dispatchEvent(windowClosing);         
+                }
+                else {
+                }
             }
-            jDialog1.setVisible(true);
-            jDialog1.setTitle(win);
-            done();
-       }
-       
-        if(btn5.equals(btn8) && btn5.equals(btn11)) 
-        {
-            if (!isX)
-            {
-             win =  "Player one wins";   
-            }
-            else 
-            {
-             win = "Player two wins";
-            }
-            jDialog1.setVisible(true);
-            jDialog1.setTitle(win); 
-            done();
-        }
-        
-        if(btn6.equals(btn9) && btn6.equals(btn12)) 
-        {
-            if (!isX)
-            {
-             win =  "Player one wins";   
-            }
-            else 
-            {
-             win = "Player two wins";
-            }
-            jDialog1.setVisible(true);
-            jDialog1.setTitle(win); 
-            done();
-        }
-        
-        if(btn6.equals(btn8) && btn6.equals(btn10)) 
-        {
-            if (!isX)
-            {
-             win =  "Player one wins";   
-            }
-            else 
-            {
-             win = "Player two wins";
-            }
-            jDialog1.setVisible(true);
-            jDialog1.setTitle(win); 
             done();
         }
         
@@ -299,12 +267,30 @@ public class MainWindow extends javax.swing.JFrame {
             {
              win = "Player two wins";
             }
-            jDialog1.setVisible(true);
-            jDialog1.setTitle(win); 
-            done();        
-        }
-        
-        if(btn10.equals(btn11) && btn10.equals(btn12)) 
+           Object[] options = { "Start a new game", "Menu", "End"};
+           jOptionPane1.showMessageDialog(rootPane, win);
+           int option =   jOptionPane1.showOptionDialog(rootPane, "Do you want to start a new game?", "Choose an option", jOptionPane1.YES_NO_CANCEL_OPTION, jOptionPane1.QUESTION_MESSAGE, null, options, options[2]);
+            if( option == jOptionPane1.YES_OPTION)
+            {
+                  JFrame frame = new MainWindow(); 
+                  frame.setDefaultCloseOperation(MainWindow.EXIT_ON_CLOSE); 
+                  frame.setVisible(true);
+            }
+            else {
+                if(option == jOptionPane1.CANCEL_OPTION) {
+               WindowEvent windowClosing = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
+	       this.dispatchEvent(windowClosing);         
+                }
+                else {
+                }
+            }
+            done();    
+        }  
+    }
+    
+    public void CheckWinCol(){
+      
+        if(btn1.equals(btn4) && btn1.equals(btn7)) 
         {
             if (!isX)
             {
@@ -314,27 +300,220 @@ public class MainWindow extends javax.swing.JFrame {
             {
              win = "Player two wins";
             }
-            jDialog1.setVisible(true);
-            jDialog1.setTitle(win);
+           Object[] options = { "Start a new game", "Menu", "End"};
+           jOptionPane1.showMessageDialog(rootPane, win);
+           int option =   jOptionPane1.showOptionDialog(rootPane, "Do you want to start a new game?", "Choose an option", jOptionPane1.YES_NO_CANCEL_OPTION, jOptionPane1.QUESTION_MESSAGE, null, options, options[2]);
+            if( option == jOptionPane1.YES_OPTION)
+            {
+                  JFrame frame = new MainWindow(); 
+                  frame.setDefaultCloseOperation(MainWindow.EXIT_ON_CLOSE); 
+                  frame.setVisible(true);
+            }
+            else {
+                if(option == jOptionPane1.CANCEL_OPTION) {
+               WindowEvent windowClosing = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
+	       this.dispatchEvent(windowClosing);         
+                }
+                else {
+                }
+            }
             done();
-            
-        }        
+        }
+        if(btn2.equals(btn5) && btn2.equals(btn8)) 
+        {
+            if (!isX)
+            {
+             win =  "Player one wins";   
+            }
+            else 
+            {
+             win = "Player two wins";
+            }
+           Object[] options = { "Start a new game", "Menu", "End"};
+           jOptionPane1.showMessageDialog(rootPane, win);
+           int option =   jOptionPane1.showOptionDialog(rootPane, "Do you want to start a new game?", "Choose an option", jOptionPane1.YES_NO_CANCEL_OPTION, jOptionPane1.QUESTION_MESSAGE, null, options, options[2]);
+            if( option == jOptionPane1.YES_OPTION)
+            {
+                  JFrame frame = new MainWindow(); 
+                  frame.setDefaultCloseOperation(MainWindow.EXIT_ON_CLOSE); 
+                  frame.setVisible(true);
+            }
+            else {
+                if(option == jOptionPane1.CANCEL_OPTION) {
+               WindowEvent windowClosing = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
+	       this.dispatchEvent(windowClosing);         
+                }
+                else {
+                }
+            }
+            done();
+        }               
+        if(btn3.equals(btn6) && btn3.equals(btn9)) 
+        {
+            if (!isX)
+            {
+             win =  "Player one wins";   
+            }
+            else 
+            {
+             win = "Player two wins";
+            }
+           Object[] options = { "Start a new game", "Menu", "End"};
+           jOptionPane1.showMessageDialog(rootPane, win);
+           int option =   jOptionPane1.showOptionDialog(rootPane, "Do you want to start a new game?", "Choose an option", jOptionPane1.YES_NO_CANCEL_OPTION, jOptionPane1.QUESTION_MESSAGE, null, options, options[2]);
+            if( option == jOptionPane1.YES_OPTION)
+            {
+                  JFrame frame = new MainWindow(); 
+                  frame.setDefaultCloseOperation(MainWindow.EXIT_ON_CLOSE); 
+                  frame.setVisible(true);
+            }
+            else {
+                if(option == jOptionPane1.CANCEL_OPTION) {
+               WindowEvent windowClosing = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
+	       this.dispatchEvent(windowClosing);         
+                }
+                else {
+                }
+            }
+            done();
+        }     
     }
     
+    public void CheckWinDiag(){
+    
+        if(btn1.equals(btn5) && btn1.equals(btn9)) 
+       {
+            if (!isX)
+            {
+             win =  "Player one wins";   
+            }
+            else 
+            {
+             win = "Player two wins";
+            }
+           Object[] options = { "Start a new game", "Menu", "End"};
+           jOptionPane1.showMessageDialog(rootPane, win);
+           int option =   jOptionPane1.showOptionDialog(rootPane, "Do you want to start a new game?", "Choose an option", jOptionPane1.YES_NO_CANCEL_OPTION, jOptionPane1.QUESTION_MESSAGE, null, options, options[2]);
+            if( option == jOptionPane1.YES_OPTION)
+            {
+                  JFrame frame = new MainWindow(); 
+                  frame.setDefaultCloseOperation(MainWindow.EXIT_ON_CLOSE); 
+                  frame.setVisible(true);
+            }
+            else {
+                if(option == jOptionPane1.CANCEL_OPTION) {
+               WindowEvent windowClosing = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
+	       this.dispatchEvent(windowClosing);         
+                }
+                else {
+                }
+            }
+            done();
+       } 
+ 
+        if(btn3.equals(btn5) && btn3.equals(btn7)) 
+        {
+            if (!isX)
+            {
+             win =  "Player one wins";   
+            }
+            else 
+            {
+             win = "Player two wins";
+            }
+           Object[] options = { "Start a new game", "Menu", "End"};
+           jOptionPane1.showMessageDialog(rootPane, win);
+           int option =   jOptionPane1.showOptionDialog(rootPane, "Do you want to start a new game?", "Choose an option", jOptionPane1.YES_NO_CANCEL_OPTION, jOptionPane1.QUESTION_MESSAGE, null, options, options[2]);
+            if( option == jOptionPane1.YES_OPTION)
+            {
+                  JFrame frame = new MainWindow(); 
+                  frame.setDefaultCloseOperation(MainWindow.EXIT_ON_CLOSE); 
+                  frame.setVisible(true);
+            }
+            else {
+                if(option == jOptionPane1.CANCEL_OPTION) {
+               WindowEvent windowClosing = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
+	       this.dispatchEvent(windowClosing);         
+                }
+                else {
+                }
+            }
+            done();
+        } 
+    }
+      
+    
     private void done(){
+            jButton1.setEnabled(false);
+            jButton2.setEnabled(false);
+            jButton3.setEnabled(false);
             jButton4.setEnabled(false);
             jButton5.setEnabled(false);
             jButton6.setEnabled(false);
             jButton7.setEnabled(false);
             jButton8.setEnabled(false);
             jButton9.setEnabled(false);
-            jButton10.setEnabled(false);
-            jButton11.setEnabled(false);
-            jButton12.setEnabled(false);
      }
     
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if(isX)
+        {
+            jButton1.setText("X");
+            isX=false;
+        }
+        else
+        {
+            jButton1.setText("O");
+            isX=true;
+        }
+        jButton1.setEnabled(false);
+        
+        btn1 = jButton1.getText();
+        CheckWinLine();
+        CheckWinCol();
+        CheckWinDiag();
+       
+         
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+         if(isX)
+        {
+            jButton2.setText("X");
+            isX=false;
+        }
+        else
+        {
+            jButton2.setText("O");
+            isX=true;
+        }
+        jButton2.setEnabled(false);
+        btn2 = jButton2.getText();
+        CheckWinLine();
+        CheckWinCol();
+        CheckWinDiag();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        if(isX)
+        {
+            jButton3.setText("X");
+            isX=false;
+        }
+        else
+        {
+            jButton3.setText("O");
+            isX=true;
+        }
+        jButton3.setEnabled(false);
+        btn3 = jButton3.getText();
+        CheckWinLine();
+        CheckWinCol();
+        CheckWinDiag();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+         if(isX)
         {
             jButton4.setText("X");
             isX=false;
@@ -345,14 +524,14 @@ public class MainWindow extends javax.swing.JFrame {
             isX=true;
         }
         jButton4.setEnabled(false);
-        
         btn4 = jButton4.getText();
-        CheckWin();
-         
+        CheckWinLine();
+        CheckWinCol();
+        CheckWinDiag();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-         if(isX)
+        if(isX)
         {
             jButton5.setText("X");
             isX=false;
@@ -364,7 +543,9 @@ public class MainWindow extends javax.swing.JFrame {
         }
         jButton5.setEnabled(false);
         btn5 = jButton5.getText();
-        CheckWin();
+        CheckWinLine();
+        CheckWinCol();
+        CheckWinDiag();
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -380,11 +561,13 @@ public class MainWindow extends javax.swing.JFrame {
         }
         jButton6.setEnabled(false);
         btn6 = jButton6.getText();
-        CheckWin();
+        CheckWinLine();
+        CheckWinCol();
+        CheckWinDiag();
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-         if(isX)
+       if(isX)
         {
             jButton7.setText("X");
             isX=false;
@@ -396,11 +579,13 @@ public class MainWindow extends javax.swing.JFrame {
         }
         jButton7.setEnabled(false);
         btn7 = jButton7.getText();
-       CheckWin();
+        CheckWinLine();
+        CheckWinCol();
+        CheckWinDiag();
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        if(isX)
+         if(isX)
         {
             jButton8.setText("X");
             isX=false;
@@ -412,7 +597,9 @@ public class MainWindow extends javax.swing.JFrame {
         }
         jButton8.setEnabled(false);
         btn8 = jButton8.getText();
-        CheckWin();
+        CheckWinLine();
+        CheckWinCol();
+        CheckWinDiag();
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
@@ -428,56 +615,10 @@ public class MainWindow extends javax.swing.JFrame {
         }
         jButton9.setEnabled(false);
         btn9 = jButton9.getText();
-        CheckWin();
+        CheckWinLine();
+        CheckWinCol();
+        CheckWinDiag();
     }//GEN-LAST:event_jButton9ActionPerformed
-
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-       if(isX)
-        {
-            jButton10.setText("X");
-            isX=false;
-        }
-        else
-        {
-            jButton10.setText("O");
-            isX=true;
-        }
-        jButton10.setEnabled(false);
-        btn10 = jButton10.getText();
-        CheckWin();
-    }//GEN-LAST:event_jButton10ActionPerformed
-
-    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-         if(isX)
-        {
-            jButton11.setText("X");
-            isX=false;
-        }
-        else
-        {
-            jButton11.setText("O");
-            isX=true;
-        }
-        jButton11.setEnabled(false);
-        btn11 = jButton11.getText();
-        CheckWin();
-    }//GEN-LAST:event_jButton11ActionPerformed
-
-    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        if(isX)
-        {
-            jButton12.setText("X");
-            isX=false;
-        }
-        else
-        {
-            jButton12.setText("O");
-            isX=true;
-        }
-        jButton12.setEnabled(false);
-        btn12 = jButton12.getText();
-        CheckWin();
-    }//GEN-LAST:event_jButton12ActionPerformed
      
     
   
@@ -515,9 +656,6 @@ public class MainWindow extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -526,6 +664,10 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
+    private javax.swing.JButton jButtonpvc;
+    private javax.swing.JButton jButtonpvp;
+    private javax.swing.JButton jButtons;
     private javax.swing.JDialog jDialog1;
+    private javax.swing.JOptionPane jOptionPane1;
     // End of variables declaration//GEN-END:variables
 }
