@@ -15,6 +15,8 @@ public class MainWindow extends javax.swing.JFrame {
      */
     public boolean isX=true;
     public boolean hide=true;
+    public int scoreX=0;//contor care tine scorul pt X
+    public int scoreO=0;//contor care tine scorul pt O
     public String btn1="A", btn2="B", btn3="C", btn4="D", btn5="E", btn6="F", btn7="G", btn8="H", btn9="I", win;
     public MainWindow() {
         initComponents();
@@ -46,8 +48,10 @@ public class MainWindow extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         exit = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         jDialog1.setBackground(java.awt.Color.darkGray);
         jDialog1.setBounds(new java.awt.Rectangle(0, 0, 250, 100));
@@ -69,6 +73,11 @@ public class MainWindow extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("TIC TAC TOE");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setLocationByPlatform(true);
+        setMaximumSize(new java.awt.Dimension(600, 450));
+        setMinimumSize(new java.awt.Dimension(600, 450));
+        setPreferredSize(new java.awt.Dimension(600, 450));
+        setResizable(false);
         addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentHidden(java.awt.event.ComponentEvent evt) {
                 formComponentHidden(evt);
@@ -76,31 +85,38 @@ public class MainWindow extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jButtons.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButtons.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtons.setLabel("Start");
         jButtons.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonsActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtons, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+        getContentPane().add(jButtons, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, -1, -1));
 
+        jButtonpvp.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButtonpvp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonpvp.setLabel("Player Vs Player");
         jButtonpvp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonpvpActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonpvp, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
+        getContentPane().add(jButtonpvp, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, -1, -1));
 
+        jButtonpvc.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButtonpvc.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonpvc.setLabel("Player Vs Computer");
         jButtonpvc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonpvcActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonpvc, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, -1, -1));
+        getContentPane().add(jButtonpvc, new org.netbeans.lib.awtextra.AbsoluteConstraints(275, 20, -1, -1));
 
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 1)); // NOI18N
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.setName("bla"); // NOI18N
         jButton1.setPreferredSize(new java.awt.Dimension(100, 100));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -108,85 +124,117 @@ public class MainWindow extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 120, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 100, -1, -1));
 
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 1)); // NOI18N
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton2.setPreferredSize(new java.awt.Dimension(100, 100));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(231, 120, -1, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(231, 100, -1, -1));
 
+        jButton3.setFont(new java.awt.Font("Tahoma", 1, 1)); // NOI18N
+        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton3.setPreferredSize(new java.awt.Dimension(100, 100));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(337, 120, -1, -1));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(337, 100, -1, -1));
 
+        jButton4.setFont(new java.awt.Font("Tahoma", 1, 1)); // NOI18N
+        jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton4.setPreferredSize(new java.awt.Dimension(100, 100));
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 226, -1, -1));
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 206, -1, -1));
 
+        jButton5.setFont(new java.awt.Font("Tahoma", 1, 1)); // NOI18N
+        jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton5.setPreferredSize(new java.awt.Dimension(100, 100));
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(231, 226, -1, -1));
+        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(231, 206, -1, -1));
 
+        jButton6.setFont(new java.awt.Font("Tahoma", 1, 1)); // NOI18N
+        jButton6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton6.setPreferredSize(new java.awt.Dimension(100, 100));
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(337, 226, -1, -1));
+        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(337, 206, -1, -1));
 
+        jButton7.setFont(new java.awt.Font("Tahoma", 1, 1)); // NOI18N
+        jButton7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton7.setPreferredSize(new java.awt.Dimension(100, 100));
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 332, -1, -1));
+        getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 312, -1, -1));
 
+        jButton8.setFont(new java.awt.Font("Tahoma", 1, 1)); // NOI18N
+        jButton8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton8.setPreferredSize(new java.awt.Dimension(100, 100));
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton8ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(231, 332, -1, -1));
+        getContentPane().add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(231, 312, -1, -1));
 
+        jButton9.setFont(new java.awt.Font("Tahoma", 1, 1)); // NOI18N
+        jButton9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton9.setPreferredSize(new java.awt.Dimension(100, 100));
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton9ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(337, 332, -1, -1));
+        getContentPane().add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(337, 312, -1, -1));
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Player 1:  Player 2:");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, 250, 25));
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.setMaximumSize(new java.awt.Dimension(600, 450));
+        jPanel1.setMinimumSize(new java.awt.Dimension(600, 450));
+        jPanel1.setPreferredSize(new java.awt.Dimension(600, 450));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        exit.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         exit.setText("EXIT");
+        exit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         exit.setName("exit"); // NOI18N
         exit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 exitActionPerformed(evt);
             }
         });
-        jPanel1.add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 10, -1, -1));
+        jPanel1.add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(435, 20, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 490));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tic/tac/toe/Images/XsiO2.png"))); // NOI18N
+        jLabel1.setText("backgroundImage");
+        jLabel1.setMaximumSize(new java.awt.Dimension(600, 450));
+        jLabel1.setMinimumSize(new java.awt.Dimension(600, 450));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 450));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 450));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -195,11 +243,15 @@ public class MainWindow extends javax.swing.JFrame {
      if(btn1.equals(btn2) && btn1.equals(btn3)) {
             if (!isX)
             {
-             win =  "Player one wins!";   
+             win =  "Player one wins!";
+             scoreX++;
+             jLabel2.setText("Player 1:"+scoreX+"  Player 2:"+scoreO);
             }
             else 
             {
              win = "Player two wins!";
+             scoreO++;
+             jLabel2.setText("Player 1:"+scoreX+"  Player 2:"+scoreO);
             }
            Object[] options = { "Start a new game!", "Menu", "Exit"};
 //============ Trebuie sa renuntam la optiunea de start new game =>nu va mai fi nevoie de o alta fereastra pt un nou joc!
@@ -224,18 +276,22 @@ public class MainWindow extends javax.swing.JFrame {
                 }
                 else {
                 } 
-//=====================================
+//=====================================L-AM SCOS :D
             done();
           }
      if(btn4.equals(btn5) && btn4.equals(btn6)) 
         {
             if (!isX)
             {
-             win =  "Player one wins!";   
+             win =  "Player one wins!";
+             scoreX++;
+             jLabel2.setText("Player 1:"+scoreX+"  Player 2:"+scoreO);
             }
             else 
             {
              win = "Player two wins!";
+             scoreO++;
+             jLabel2.setText("Player 1:"+scoreX+"  Player 2:"+scoreO);
             }
            Object[] options = { "Start a new game!", "Menu", "Exit"};
            jOptionPane1.showMessageDialog(rootPane, win);
@@ -249,13 +305,13 @@ public class MainWindow extends javax.swing.JFrame {
             else {
                   show_bg(hide);
                   jButtons.setEnabled(true);
+            }
                 if(option == jOptionPane1.CANCEL_OPTION) {
                WindowEvent windowClosing = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
 	       this.dispatchEvent(windowClosing);         
                 }
                 else {
                 }
-            }
             done();
         }
         
@@ -263,11 +319,15 @@ public class MainWindow extends javax.swing.JFrame {
         {
             if (!isX)
             {
-             win =  "Player one wins!";   
+             win =  "Player one wins!";
+             scoreX++;
+             jLabel2.setText("Player 1:"+scoreX+"  Player 2:"+scoreO);
             }
             else 
             {
              win = "Player two wins!";
+             scoreO++;
+             jLabel2.setText("Player 1:"+scoreX+"  Player 2:"+scoreO);
             }
            Object[] options = { "Start a new game!", "Menu", "Exit"};
            jOptionPane1.showMessageDialog(rootPane, win);
@@ -281,13 +341,13 @@ public class MainWindow extends javax.swing.JFrame {
             else {
                   show_bg(hide);
                   jButtons.setEnabled(true);
+            }
                 if(option == jOptionPane1.CANCEL_OPTION) {
                WindowEvent windowClosing = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
 	       this.dispatchEvent(windowClosing);         
                 }
                 else {
                 }
-            }
             done();    
         }  
     }
@@ -298,11 +358,15 @@ public class MainWindow extends javax.swing.JFrame {
         {
             if (!isX)
             {
-             win =  "Player one wins!";   
+             win =  "Player one wins!";
+             scoreX++;
+             jLabel2.setText("Player 1:"+scoreX+"  Player 2:"+scoreO);
             }
             else 
             {
              win = "Player two wins!";
+             scoreO++;
+             jLabel2.setText("Player 1:"+scoreX+"  Player 2:"+scoreO);
             }
            Object[] options = { "Start a new game!", "Menu", "Exit"};
            jOptionPane1.showMessageDialog(rootPane, win);
@@ -316,24 +380,28 @@ public class MainWindow extends javax.swing.JFrame {
             else {
                   show_bg(hide);
                   jButtons.setEnabled(true);
+            }
                 if(option == jOptionPane1.CANCEL_OPTION) {
                WindowEvent windowClosing = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
 	       this.dispatchEvent(windowClosing);         
                 }
                 else {
                 }
-            }
             done();
         }
         if(btn2.equals(btn5) && btn2.equals(btn8)) 
         {
             if (!isX)
             {
-             win =  "Player one wins!";   
+             win =  "Player one wins!"; 
+             scoreX++;
+             jLabel2.setText("Player 1:"+scoreX+"  Player 2:"+scoreO);
             }
             else 
             {
              win = "Player two wins!";
+             scoreO++;
+             jLabel2.setText("Player 1:"+scoreX+"  Player 2:"+scoreO);
             }
            Object[] options = { "Start a new game!", "Menu", "Exit"};
            jOptionPane1.showMessageDialog(rootPane, win);
@@ -347,24 +415,28 @@ public class MainWindow extends javax.swing.JFrame {
             else {
                   show_bg(hide);
                   jButtons.setEnabled(true);
+            }
                 if(option == jOptionPane1.CANCEL_OPTION) {
                WindowEvent windowClosing = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
 	       this.dispatchEvent(windowClosing);         
                 }
                 else {
                 }
-            }
             done();
         }               
         if(btn3.equals(btn6) && btn3.equals(btn9)) 
         {
             if (!isX)
             {
-             win =  "Player one wins!";   
+             win =  "Player one wins!";
+             scoreX++;
+             jLabel2.setText("Player 1:"+scoreX+"  Player 2:"+scoreO);
             }
             else 
             {
              win = "Player two wins!";
+             scoreO++;
+             jLabel2.setText("Player 1:"+scoreX+"  Player 2:"+scoreO);
             }
            Object[] options = { "Start a new game!", "Menu", "Exit"};
            jOptionPane1.showMessageDialog(rootPane, win);
@@ -378,13 +450,13 @@ public class MainWindow extends javax.swing.JFrame {
             else {
                   show_bg(hide);
                   jButtons.setEnabled(true);
+            }
                 if(option == jOptionPane1.CANCEL_OPTION) {
                WindowEvent windowClosing = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
 	       this.dispatchEvent(windowClosing);         
                 }
                 else {
                 }
-            }
             done();
         }     
     }
@@ -395,11 +467,15 @@ public class MainWindow extends javax.swing.JFrame {
        {
             if (!isX)
             {
-             win =  "Player one wins!";   
+             win =  "Player one wins!";
+             scoreX++;
+             jLabel2.setText("Player 1:"+scoreX+"  Player 2:"+scoreO);
             }
             else 
             {
              win = "Player two wins!";
+             scoreO++;
+             jLabel2.setText("Player 1:"+scoreX+"  Player 2:"+scoreO);
             }
            Object[] options = { "Start a new game!", "Menu", "Exit"};
            jOptionPane1.showMessageDialog(rootPane, win);
@@ -413,13 +489,13 @@ public class MainWindow extends javax.swing.JFrame {
             else {
                   show_bg(hide);
                   jButtons.setEnabled(true);
+            }
                 if(option == jOptionPane1.CANCEL_OPTION) {
                WindowEvent windowClosing = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
 	       this.dispatchEvent(windowClosing);         
                 }
                 else {
                 }
-            }
             done();
        } 
  
@@ -427,11 +503,15 @@ public class MainWindow extends javax.swing.JFrame {
         {
             if (!isX)
             {
-             win =  "Player one wins!";   
+             win =  "Player one wins!";
+             scoreX++;
+             jLabel2.setText("Player 1:"+scoreX+"  Player 2:"+scoreO);
             }
             else 
             {
              win = "Player two wins!";
+             scoreO++;
+             jLabel2.setText("Player 1:"+scoreX+"  Player 2:"+scoreO);
             }
            Object[] options = { "Start a new game!", "Menu", "Exit"};
            jOptionPane1.showMessageDialog(rootPane, win);
@@ -445,13 +525,13 @@ public class MainWindow extends javax.swing.JFrame {
             else {
                   show_bg(hide);
                   jButtons.setEnabled(true);
+            }
                 if(option == jOptionPane1.CANCEL_OPTION) {
                WindowEvent windowClosing = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
 	       this.dispatchEvent(windowClosing);         
                 }
                 else {
                 }
-            }
             done();
         } 
     }
@@ -470,6 +550,7 @@ public class MainWindow extends javax.swing.JFrame {
             jButton8.setEnabled(false); jButton8.setVisible(false);
             jButton9.setEnabled(false); jButton9.setVisible(false);
             hide=false;
+            jLabel2.setVisible(false);
         }
         else
         {
@@ -483,6 +564,7 @@ public class MainWindow extends javax.swing.JFrame {
             jButton8.setEnabled(true); jButton8.setVisible(true);
             jButton9.setEnabled(true); jButton9.setVisible(true);
             hide=true;
+            jLabel2.setVisible(true);
         }
     }
       
@@ -503,11 +585,14 @@ public class MainWindow extends javax.swing.JFrame {
         if(isX)
         {
             jButton1.setText("X");
+            //am setat fontul la 1 pentru a se vedea decat imaginea pe buton
+            jButton1.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/X2.png"));
             isX=false;
         }
         else
         {
             jButton1.setText("O");
+            jButton1.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
             isX=true;
         }
         jButton1.setEnabled(false);
@@ -524,11 +609,13 @@ public class MainWindow extends javax.swing.JFrame {
          if(isX)
         {
             jButton2.setText("X");
+            jButton2.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/X2.png"));
             isX=false;
         }
         else
         {
             jButton2.setText("O");
+            jButton2.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
             isX=true;
         }
         jButton2.setEnabled(false);
@@ -542,11 +629,13 @@ public class MainWindow extends javax.swing.JFrame {
         if(isX)
         {
             jButton3.setText("X");
+            jButton3.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/X2.png"));
             isX=false;
         }
         else
         {
             jButton3.setText("O");
+            jButton3.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
             isX=true;
         }
         jButton3.setEnabled(false);
@@ -560,11 +649,13 @@ public class MainWindow extends javax.swing.JFrame {
          if(isX)
         {
             jButton4.setText("X");
+            jButton4.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/X2.png"));
             isX=false;
         }
         else
         {
             jButton4.setText("O");
+            jButton4.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
             isX=true;
         }
         jButton4.setEnabled(false);
@@ -578,11 +669,13 @@ public class MainWindow extends javax.swing.JFrame {
         if(isX)
         {
             jButton5.setText("X");
+            jButton5.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/X2.png"));
             isX=false;
         }
         else
         {
             jButton5.setText("O");
+            jButton5.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
             isX=true;
         }
         jButton5.setEnabled(false);
@@ -596,11 +689,13 @@ public class MainWindow extends javax.swing.JFrame {
         if(isX)
         {
             jButton6.setText("X");
+            jButton6.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/X2.png"));
             isX=false;
         }
         else
         {
             jButton6.setText("O");
+            jButton6.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
             isX=true;
         }
         jButton6.setEnabled(false);
@@ -614,11 +709,13 @@ public class MainWindow extends javax.swing.JFrame {
        if(isX)
         {
             jButton7.setText("X");
+            jButton7.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/X2.png"));
             isX=false;
         }
         else
         {
             jButton7.setText("O");
+            jButton7.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
             isX=true;
         }
         jButton7.setEnabled(false);
@@ -632,11 +729,13 @@ public class MainWindow extends javax.swing.JFrame {
          if(isX)
         {
             jButton8.setText("X");
+            jButton8.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/X2.png"));
             isX=false;
         }
         else
         {
             jButton8.setText("O");
+            jButton8.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
             isX=true;
         }
         jButton8.setEnabled(false);
@@ -650,11 +749,13 @@ public class MainWindow extends javax.swing.JFrame {
         if(isX)
         {
             jButton9.setText("X");
+            jButton9.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/X2.png"));
             isX=false;
         }
         else
         {
             jButton9.setText("O");
+            jButton9.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
             isX=true;
         }
         jButton9.setEnabled(false);
@@ -743,6 +844,8 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton jButtonpvp;
     private javax.swing.JButton jButtons;
     private javax.swing.JDialog jDialog1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JOptionPane jOptionPane1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
