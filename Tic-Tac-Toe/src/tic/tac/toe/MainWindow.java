@@ -243,8 +243,46 @@ public class MainWindow extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    public void CheckWinLine() {
+    public void reinitializeaza_btn(){
+       btn1="1"; 
+       btn2="2"; 
+       btn3="3"; 
+       btn4="4"; 
+       btn5="5"; 
+       btn6="6"; 
+       btn7="7"; 
+       btn8="8"; 
+       btn9="9";
+    }
+    
+       private void yes_option(){
+        show_bg(hide);
+                  jButtons.setEnabled(true);
+                  jButtonpvp.setEnabled(true);
+                  jButtonpvc.setEnabled(false);
+                  checkMove();
+    }
+    
+    private void no_option(){
+        show_bg(hide);
+           jButtons.setEnabled(true);
+                  jButtonpvp.setEnabled(true);
+                  jButtonpvc.setEnabled(true);
+                  checkMove(); 
+    }
+    
+    private void done() {
+                Object[] options = {"Yes", "No"};
+                    jOptionPane1.showMessageDialog(rootPane, win);
+            int option =   jOptionPane1.showOptionDialog(rootPane, "Do you want to start again?", "Choose an option:", jOptionPane1.YES_NO_OPTION, jOptionPane1.QUESTION_MESSAGE, null, options, options[1]);
+            if( option == jOptionPane1.YES_OPTION) {
+                    yes_option();
+            }
+            else {
+                no_option();
+            }
+    }
+    public void CheckWin() {
         if(btn1.equals(btn2) && btn1.equals(btn3)) {
             if (!isX) {
              win =  "Player one wins!";
@@ -255,26 +293,6 @@ public class MainWindow extends javax.swing.JFrame {
              win = "Player two wins!";
              scoreO++;
              jLabel2.setText("Player one: "+scoreX+"       Player two: "+scoreO);
-            }
-            Object[] options = { "Start a new game!", "Menu", "Exit"};
-//============ Trebuie sa renuntam la optiunea de start new game =>nu va mai fi nevoie de o alta fereastra pt un nou joc!
-//============================================================== => toata aplicatia va avea o singura fereastra!
-            jOptionPane1.showMessageDialog(rootPane, win);
-            int option =   jOptionPane1.showOptionDialog(rootPane, "Do you want to start a new game?", "Choose an option:", jOptionPane1.YES_NO_CANCEL_OPTION, jOptionPane1.QUESTION_MESSAGE, null, options, options[2]);
-            if( option == jOptionPane1.YES_OPTION) {
-                  JFrame frame = new MainWindow();
-                  frame.setDefaultCloseOperation(MainWindow.EXIT_ON_CLOSE); 
-                  frame.setVisible(true);
-            }
-            else {
-                  show_bg(hide);
-                  jButtons.setEnabled(true);
-            }
-            if(option == jOptionPane1.CANCEL_OPTION) {
-                WindowEvent windowClosing = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
-	        this.dispatchEvent(windowClosing);         
-            }
-            else {
             }
             done();
         }
@@ -290,25 +308,7 @@ public class MainWindow extends javax.swing.JFrame {
              scoreO++;
              jLabel2.setText("Player one: "+scoreX+"       Player two: "+scoreO);
             }
-            Object[] options = { "Start a new game!", "Menu", "Exit"};
-            jOptionPane1.showMessageDialog(rootPane, win);
-            int option =   jOptionPane1.showOptionDialog(rootPane, "Do you want to start a new game?", "Choose an option:", jOptionPane1.YES_NO_CANCEL_OPTION, jOptionPane1.QUESTION_MESSAGE, null, options, options[2]);
-            if( option == jOptionPane1.YES_OPTION) {
-                  JFrame frame = new MainWindow(); 
-                  frame.setDefaultCloseOperation(MainWindow.EXIT_ON_CLOSE); 
-                  frame.setVisible(true);
-            }
-            else {
-                  show_bg(hide);
-                  jButtons.setEnabled(true);
-            }
-            if(option == jOptionPane1.CANCEL_OPTION) {
-                WindowEvent windowClosing = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
-                this.dispatchEvent(windowClosing);         
-            }
-            else {
-            }
-            done();
+           done();
         }
         
         if(btn7.equals(btn8) && btn7.equals(btn9)) {
@@ -322,29 +322,9 @@ public class MainWindow extends javax.swing.JFrame {
              scoreO++;
              jLabel2.setText("Player one: "+scoreX+"       Player two: "+scoreO);
             }
-            Object[] options = { "Start a new game!", "Menu", "Exit"};
-            jOptionPane1.showMessageDialog(rootPane, win);
-            int option =   jOptionPane1.showOptionDialog(rootPane, "Do you want to start a new game?", "Choose an option:", jOptionPane1.YES_NO_CANCEL_OPTION, jOptionPane1.QUESTION_MESSAGE, null, options, options[2]);
-            if( option == jOptionPane1.YES_OPTION) {
-                  JFrame frame = new MainWindow(); 
-                  frame.setDefaultCloseOperation(MainWindow.EXIT_ON_CLOSE); 
-                  frame.setVisible(true);
-            }
-            else {
-                  show_bg(hide);
-                  jButtons.setEnabled(true);
-            }
-            if(option == jOptionPane1.CANCEL_OPTION) {
-                WindowEvent windowClosing = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
-	        this.dispatchEvent(windowClosing);         
-            }
-            else {
-            }
             done();    
-        }  
-    }
-    
-    public void CheckWinCol(){      
+        }
+        
         if(btn1.equals(btn4) && btn1.equals(btn7)) {
             if (!isX) {
                 win =  "Player one wins!";
@@ -355,24 +335,6 @@ public class MainWindow extends javax.swing.JFrame {
                 win = "Player two wins!";
                 scoreO++;
                 jLabel2.setText("Player one: "+scoreX+"       Player two: "+scoreO);
-            }
-            Object[] options = { "Start a new game!", "Menu", "Exit"};
-            jOptionPane1.showMessageDialog(rootPane, win);
-            int option =   jOptionPane1.showOptionDialog(rootPane, "Do you want to start a new game?", "Choose an option:", jOptionPane1.YES_NO_CANCEL_OPTION, jOptionPane1.QUESTION_MESSAGE, null, options, options[2]);
-            if( option == jOptionPane1.YES_OPTION) {
-                JFrame frame = new MainWindow(); 
-                frame.setDefaultCloseOperation(MainWindow.EXIT_ON_CLOSE); 
-                frame.setVisible(true);
-            }
-            else {
-                show_bg(hide);
-                jButtons.setEnabled(true);
-            }
-            if(option == jOptionPane1.CANCEL_OPTION) {
-                WindowEvent windowClosing = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
-	        this.dispatchEvent(windowClosing);         
-            }
-            else {
             }
             done();
         }
@@ -388,24 +350,6 @@ public class MainWindow extends javax.swing.JFrame {
                 scoreO++;
                 jLabel2.setText("Player one: "+scoreX+"       Player two: "+scoreO);
             }
-            Object[] options = { "Start a new game!", "Menu", "Exit"};
-            jOptionPane1.showMessageDialog(rootPane, win);
-            int option =   jOptionPane1.showOptionDialog(rootPane, "Do you want to start a new game?", "Choose an option:", jOptionPane1.YES_NO_CANCEL_OPTION, jOptionPane1.QUESTION_MESSAGE, null, options, options[2]);
-            if( option == jOptionPane1.YES_OPTION) {
-                JFrame frame = new MainWindow(); 
-                frame.setDefaultCloseOperation(MainWindow.EXIT_ON_CLOSE); 
-                frame.setVisible(true);
-            }
-            else {
-                show_bg(hide);
-                jButtons.setEnabled(true);
-            }
-            if(option == jOptionPane1.CANCEL_OPTION) {
-                WindowEvent windowClosing = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
-                this.dispatchEvent(windowClosing);         
-            }
-            else {
-            }
             done();
         }
         
@@ -420,29 +364,9 @@ public class MainWindow extends javax.swing.JFrame {
                 scoreO++;
                 jLabel2.setText("Player one: "+scoreX+"       Player two: "+scoreO);
             }
-            Object[] options = { "Start a new game!", "Menu", "Exit"};
-            jOptionPane1.showMessageDialog(rootPane, win);
-            int option =   jOptionPane1.showOptionDialog(rootPane, "Do you want to start a new game?", "Choose an option:", jOptionPane1.YES_NO_CANCEL_OPTION, jOptionPane1.QUESTION_MESSAGE, null, options, options[2]);
-            if( option == jOptionPane1.YES_OPTION) {
-                JFrame frame = new MainWindow(); 
-                frame.setDefaultCloseOperation(MainWindow.EXIT_ON_CLOSE); 
-                frame.setVisible(true);
-            }
-            else {
-                show_bg(hide);
-                jButtons.setEnabled(true);
-            }
-            if(option == jOptionPane1.CANCEL_OPTION) {
-                WindowEvent windowClosing = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
-                this.dispatchEvent(windowClosing);         
-            }
-            else {
-            }
             done();
         }     
-    }
-    
-    public void CheckWinDiag(){    
+
         if(btn1.equals(btn5) && btn1.equals(btn9)) {
             if (!isX) {
                 win =  "Player one wins!";
@@ -453,24 +377,6 @@ public class MainWindow extends javax.swing.JFrame {
                 win = "Player two wins!";
                 scoreO++;
                 jLabel2.setText("Player one: "+scoreX+"       Player two: "+scoreO);
-            }
-            Object[] options = { "Start a new game!", "Menu", "Exit"};
-            jOptionPane1.showMessageDialog(rootPane, win);
-            int option =   jOptionPane1.showOptionDialog(rootPane, "Do you want to start a new game?", "Choose an option:", jOptionPane1.YES_NO_CANCEL_OPTION, jOptionPane1.QUESTION_MESSAGE, null, options, options[2]);
-            if( option == jOptionPane1.YES_OPTION) {
-                JFrame frame = new MainWindow(); 
-                frame.setDefaultCloseOperation(MainWindow.EXIT_ON_CLOSE); 
-                frame.setVisible(true);
-            }
-            else {
-                show_bg(hide);
-                jButtons.setEnabled(true);
-            }
-            if(option == jOptionPane1.CANCEL_OPTION) {
-                WindowEvent windowClosing = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
-                this.dispatchEvent(windowClosing);         
-            }
-            else {
             }
             done();
         } 
@@ -485,24 +391,6 @@ public class MainWindow extends javax.swing.JFrame {
                 win = "Player two wins!";
                 scoreO++;
                 jLabel2.setText("Player one: "+scoreX+"       Player two: "+scoreO);
-            }
-            Object[] options = { "Start a new game!", "Menu", "Exit"};
-            jOptionPane1.showMessageDialog(rootPane, win);
-            int option =   jOptionPane1.showOptionDialog(rootPane, "Do you want to start a new game?", "Choose an option:", jOptionPane1.YES_NO_CANCEL_OPTION, jOptionPane1.QUESTION_MESSAGE, null, options, options[2]);
-            if( option == jOptionPane1.YES_OPTION) {
-                JFrame frame = new MainWindow(); 
-                frame.setDefaultCloseOperation(MainWindow.EXIT_ON_CLOSE); 
-                frame.setVisible(true);
-            }
-            else {
-                show_bg(hide);
-                jButtons.setEnabled(true);
-            }
-            if(option == jOptionPane1.CANCEL_OPTION) {
-                WindowEvent windowClosing = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
-                this.dispatchEvent(windowClosing);         
-            }
-            else {
             }
             done();
         } 
@@ -564,18 +452,6 @@ public class MainWindow extends javax.swing.JFrame {
 	}
 	labelMove.setText("Move: " + whoMove);
     }
-
-    private void done(){
-            jButton1.setEnabled(false);
-            jButton2.setEnabled(false);
-            jButton3.setEnabled(false);
-            jButton4.setEnabled(false);
-            jButton5.setEnabled(false);
-            jButton6.setEnabled(false);
-            jButton7.setEnabled(false);
-            jButton8.setEnabled(false);
-            jButton9.setEnabled(false);
-     }
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if(isX) {
@@ -590,9 +466,7 @@ public class MainWindow extends javax.swing.JFrame {
         }
         jButton1.setEnabled(false);
         btn1 = jButton1.getText();
-        CheckWinLine();
-        CheckWinCol();
-        CheckWinDiag();
+        CheckWin();
         checkMove();
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -609,9 +483,7 @@ public class MainWindow extends javax.swing.JFrame {
         }
         jButton2.setEnabled(false);
         btn2 = jButton2.getText();
-        CheckWinLine();
-        CheckWinCol();
-        CheckWinDiag();
+        CheckWin();
         checkMove();
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -628,9 +500,7 @@ public class MainWindow extends javax.swing.JFrame {
         }
         jButton3.setEnabled(false);
         btn3 = jButton3.getText();
-        CheckWinLine();
-        CheckWinCol();
-        CheckWinDiag();
+        CheckWin();
         checkMove();
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -647,9 +517,7 @@ public class MainWindow extends javax.swing.JFrame {
         }
         jButton4.setEnabled(false);
         btn4 = jButton4.getText();
-        CheckWinLine();
-        CheckWinCol();
-        CheckWinDiag();
+        CheckWin();
         checkMove();
     }//GEN-LAST:event_jButton4ActionPerformed
 
@@ -666,9 +534,7 @@ public class MainWindow extends javax.swing.JFrame {
         }
         jButton5.setEnabled(false);
         btn5 = jButton5.getText();
-        CheckWinLine();
-        CheckWinCol();
-        CheckWinDiag();
+        CheckWin();
         checkMove();
     }//GEN-LAST:event_jButton5ActionPerformed
 
@@ -685,9 +551,7 @@ public class MainWindow extends javax.swing.JFrame {
         }
         jButton6.setEnabled(false);
         btn6 = jButton6.getText();
-        CheckWinLine();
-        CheckWinCol();
-        CheckWinDiag();
+        CheckWin();
         checkMove();
     }//GEN-LAST:event_jButton6ActionPerformed
 
@@ -704,9 +568,7 @@ public class MainWindow extends javax.swing.JFrame {
         }
         jButton7.setEnabled(false);
         btn7 = jButton7.getText();
-        CheckWinLine();
-        CheckWinCol();
-        CheckWinDiag();
+        CheckWin();
         checkMove();
     }//GEN-LAST:event_jButton7ActionPerformed
 
@@ -723,9 +585,7 @@ public class MainWindow extends javax.swing.JFrame {
         }
         jButton8.setEnabled(false);
         btn8 = jButton8.getText();
-        CheckWinLine();
-        CheckWinCol();
-        CheckWinDiag();
+        CheckWin();
         checkMove();
     }//GEN-LAST:event_jButton8ActionPerformed
 
@@ -742,9 +602,7 @@ public class MainWindow extends javax.swing.JFrame {
         }
         jButton9.setEnabled(false);
         btn9 = jButton9.getText();
-        CheckWinLine();
-        CheckWinCol();
-        CheckWinDiag();
+        CheckWin();
         checkMove();
     }//GEN-LAST:event_jButton9ActionPerformed
 
@@ -761,6 +619,7 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_formComponentHidden
 
     private void jButtonpvpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonpvpActionPerformed
+        reinitializeaza_btn();  
         show_bg(hide);
         jButtons.setEnabled(false);
         jButtonpvp.setEnabled(false);
