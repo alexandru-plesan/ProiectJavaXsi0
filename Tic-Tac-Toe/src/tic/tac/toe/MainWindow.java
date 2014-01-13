@@ -255,20 +255,27 @@ public class MainWindow extends javax.swing.JFrame {
        btn9="9";
     }
     
-       private void yes_option(){
+       private void yes_option(){       
+        reinitializeaza_btn();  
+        show_bg(true);
         show_bg(hide);
-                  jButtons.setEnabled(true);
-                  jButtonpvp.setEnabled(true);
-                  jButtonpvc.setEnabled(false);
-                  checkMove();
+        move=1;
+        Player1="Player 1";
+        checkMove();
+        
     }
     
     private void no_option(){
+        //show_bg(hide);
+          // jButtons.setEnabled(true);
+            //      jButtonpvp.setEnabled(true);
+              //    jButtonpvc.setEnabled(true);
+                //  checkMove(); 
         show_bg(hide);
-           jButtons.setEnabled(true);
-                  jButtonpvp.setEnabled(true);
-                  jButtonpvc.setEnabled(true);
-                  checkMove(); 
+        jButtons.setEnabled(true);
+        jButtonpvp.setVisible(false);
+        jButtonpvc.setVisible(false);
+        labelMove.setVisible(false);
     }
     
     private void done() {
