@@ -437,9 +437,31 @@ public class MainWindow extends javax.swing.JFrame {
     //String a.equals(jButton1.getName(), b=jButton2.getName(), c=jButton3.getName(), d=jButton4.getName(), e=jButton5.getName(), f=jButton6.getName(), g=jButton7.getName(), h=jButton8.getName(), i=jButton9.getName();
     
     public String randomButton() {//generam un buton random si returnam numele sau
-        String a=jButton1.getName(), b=jButton2.getName(), c=jButton3.getName(), d=jButton4.getName(), e=jButton5.getName(), f=jButton6.getName(), g=jButton7.getName(), h=jButton8.getName(), i=jButton9.getName();
-        String buttons[]={ a, b, c, d, e, f, g, h, i};
-        String randbtn=(buttons[new Random().nextInt(buttons.length)]);
+        String m[] = null;
+        for(int i=0;i<9;i++)
+        {
+            if(!jButton1.getText().equals("X")||!jButton1.getText().equals("O"))
+                m[i]=jButton1.getName();
+            if(!jButton2.getText().equals("X")||!jButton2.getText().equals("O"))
+                m[i]=jButton2.getName();
+            if(!jButton3.getText().equals("X")||!jButton3.getText().equals("O"))
+                m[i]=jButton3.getName();
+            if(!jButton4.getText().equals("X")||!jButton4.getText().equals("O"))
+                m[i]=jButton4.getName();
+            if(!jButton5.getText().equals("X")||!jButton5.getText().equals("O"))
+                m[i]=jButton5.getName();
+            if(!jButton6.getText().equals("X")||!jButton6.getText().equals("O"))
+                m[i]=jButton6.getName();
+            if(!jButton7.getText().equals("X")||!jButton7.getText().equals("O"))
+                m[i]=jButton7.getName();
+            if(!jButton8.getText().equals("X")||!jButton8.getText().equals("O"))
+                m[i]=jButton8.getName();
+            if(!jButton9.getText().equals("X")||!jButton9.getText().equals("O"))
+                m[i]=jButton9.getName();
+        }
+        //String a=jButton1.getName(), b=jButton2.getName(), c=jButton3.getName(), d=jButton4.getName(), e=jButton5.getName(), f=jButton6.getName(), g=jButton7.getName(), h=jButton8.getName(), i=jButton9.getName();
+        //String buttons[]={ a, b, c, d, e, f, g, h, i};
+        String randbtn=(m[new Random().nextInt(m.length)]);
         return randbtn;
     }
     
@@ -483,11 +505,101 @@ public class MainWindow extends javax.swing.JFrame {
                 jButton2.setEnabled(false);
                 isX=true;
             }
+            else if(cpu && bla.equals("jButton3")) {
+                jButton3.setText("0");
+                jButton3.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton3.setEnabled(false);
+                isX=true;
+            }
+            else if(cpu && bla.equals("jButton4")) {
+                jButton4.setText("0");
+                jButton4.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton4.setEnabled(false);
+                isX=true;
+            }
+            else if(cpu && bla.equals("jButton5")) {
+                jButton5.setText("0");
+                jButton5.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton5.setEnabled(false);
+                isX=true;
+            }
+            else if(cpu && bla.equals("jButton6")) {
+                jButton6.setText("0");
+                jButton6.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton6.setEnabled(false);
+                isX=true;
+            }
+            else if(cpu && bla.equals("jButton7")) {
+                jButton7.setText("0");
+                jButton7.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton7.setEnabled(false);
+                isX=true;
+            }
+            else if(cpu && bla.equals("jButton8")) {
+                jButton8.setText("0");
+                jButton8.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton8.setEnabled(false);
+                isX=true;
+            }
+            else if(cpu && bla.equals("jButton9")) {
+                jButton9.setText("0");
+                jButton9.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton9.setEnabled(false);
+                isX=true;
+            }
         }
         else {
             jButton1.setText("O");
             jButton1.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
             isX=true;
+            if(cpu && bla.equals("jButton2")) {//jButton2.getName().equals(randomButton())) {
+                jButton2.setText("0");
+                jButton2.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton2.setEnabled(false);
+                isX=true;
+            }
+            else if(cpu && bla.equals("jButton3")) {
+                jButton3.setText("0");
+                jButton3.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton3.setEnabled(false);
+                isX=true;
+            }
+            else if(cpu && bla.equals("jButton4")) {
+                jButton4.setText("0");
+                jButton4.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton4.setEnabled(false);
+                isX=true;
+            }
+            else if(cpu && bla.equals("jButton5")) {
+                jButton5.setText("0");
+                jButton5.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton5.setEnabled(false);
+                isX=true;
+            }
+            else if(cpu && bla.equals("jButton6")) {
+                jButton6.setText("0");
+                jButton6.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton6.setEnabled(false);
+                isX=true;
+            }
+            else if(cpu && bla.equals("jButton7")) {
+                jButton7.setText("0");
+                jButton7.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton7.setEnabled(false);
+                isX=true;
+            }
+            else if(cpu && bla.equals("jButton8")) {
+                jButton8.setText("0");
+                jButton8.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton8.setEnabled(false);
+                isX=true;
+            }
+            else if(cpu && bla.equals("jButton9")) {
+                jButton9.setText("0");
+                jButton9.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton9.setEnabled(false);
+                isX=true;
+            }
         }
         jButton1.setEnabled(false);
         btn1 = jButton1.getText();
