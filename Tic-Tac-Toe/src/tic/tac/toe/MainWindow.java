@@ -28,6 +28,7 @@ public class MainWindow extends javax.swing.JFrame {
         jButtonpvp.setVisible(false);
         jButtonpvc.setVisible(false);
         labelMove.setText(" ");
+        String a=jButton1.getName(), b=jButton2.getName(), c=jButton3.getName(), d=jButton4.getName(), e=jButton5.getName(), f=jButton6.getName(), g=jButton7.getName(), h=jButton8.getName(), i=jButton9.getName();
     }
 
     @SuppressWarnings("unchecked")
@@ -289,6 +290,7 @@ public class MainWindow extends javax.swing.JFrame {
                 no_option();
             }
     }
+    
     public void CheckWin() {
         if(btn1.equals(btn2) && btn1.equals(btn3)) {
             if (!isX) {
@@ -432,6 +434,8 @@ public class MainWindow extends javax.swing.JFrame {
         }
     }
     
+    //String a.equals(jButton1.getName(), b=jButton2.getName(), c=jButton3.getName(), d=jButton4.getName(), e=jButton5.getName(), f=jButton6.getName(), g=jButton7.getName(), h=jButton8.getName(), i=jButton9.getName();
+    
     public String randomButton() {//generam un buton random si returnam numele sau
         String a=jButton1.getName(), b=jButton2.getName(), c=jButton3.getName(), d=jButton4.getName(), e=jButton5.getName(), f=jButton6.getName(), g=jButton7.getName(), h=jButton8.getName(), i=jButton9.getName();
         String buttons[]={ a, b, c, d, e, f, g, h, i};
@@ -443,10 +447,15 @@ public class MainWindow extends javax.swing.JFrame {
         String alpha=randomButton(), name=button.getName();
         if(isX && (move%2!=0)&& name.equals(alpha)) {            
             button.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/X2.png"));
+            button.setText("X");
+            isX=false;
         }
         else if(! isX && (move%2==0)&& name.equals(alpha)) {
             button.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+            button.setText("O");
+            isX=true;
         }
+        button.setEnabled(false);
     }
     
     public void checkMove() {//verificam ce player este la rand
@@ -461,10 +470,19 @@ public class MainWindow extends javax.swing.JFrame {
     }
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String a=jButton1.getName(), b=jButton2.getName(), c=jButton3.getName(), d=jButton4.getName(), e=jButton5.getName(), f=jButton6.getName(), g=jButton7.getName(), h=jButton8.getName(), i=jButton9.getName();
+        String bla=randomButton();
+        
         if(isX) {
             jButton1.setText("X");
             jButton1.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/X2.png"));
             isX=false;
+            if(cpu && bla.equals("jButton2")) {//jButton2.getName().equals(randomButton())) {
+                jButton2.setText("0");
+                jButton2.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton2.setEnabled(false);
+                isX=true;
+            }
         }
         else {
             jButton1.setText("O");
@@ -634,6 +652,7 @@ public class MainWindow extends javax.swing.JFrame {
         cpu=false;
         move=1;
         Player1="Player 1";
+        labelMove.setVisible(true);
         checkMove();
     }//GEN-LAST:event_jButtonpvpActionPerformed
 
@@ -645,6 +664,7 @@ public class MainWindow extends javax.swing.JFrame {
         cpu=true;
         move=1;
         Player1="CPU";
+        labelMove.setVisible(true);
         checkMove();
     }//GEN-LAST:event_jButtonpvcActionPerformed
 
