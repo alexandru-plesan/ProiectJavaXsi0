@@ -437,30 +437,7 @@ public class MainWindow extends javax.swing.JFrame {
     //String a.equals(jButton1.getName(), b=jButton2.getName(), c=jButton3.getName(), d=jButton4.getName(), e=jButton5.getName(), f=jButton6.getName(), g=jButton7.getName(), h=jButton8.getName(), i=jButton9.getName();
     
     public String randomButton() {//generam un buton random si returnam numele sau
-        String m[] = null;
-        for(int i=0;i<9;i++)
-        {
-            if(!jButton1.getText().equals("X")||!jButton1.getText().equals("O"))
-                m[i]=jButton1.getName();
-            if(!jButton2.getText().equals("X")||!jButton2.getText().equals("O"))
-                m[i]=jButton2.getName();
-            if(!jButton3.getText().equals("X")||!jButton3.getText().equals("O"))
-                m[i]=jButton3.getName();
-            if(!jButton4.getText().equals("X")||!jButton4.getText().equals("O"))
-                m[i]=jButton4.getName();
-            if(!jButton5.getText().equals("X")||!jButton5.getText().equals("O"))
-                m[i]=jButton5.getName();
-            if(!jButton6.getText().equals("X")||!jButton6.getText().equals("O"))
-                m[i]=jButton6.getName();
-            if(!jButton7.getText().equals("X")||!jButton7.getText().equals("O"))
-                m[i]=jButton7.getName();
-            if(!jButton8.getText().equals("X")||!jButton8.getText().equals("O"))
-                m[i]=jButton8.getName();
-            if(!jButton9.getText().equals("X")||!jButton9.getText().equals("O"))
-                m[i]=jButton9.getName();
-        }
-        //String a=jButton1.getName(), b=jButton2.getName(), c=jButton3.getName(), d=jButton4.getName(), e=jButton5.getName(), f=jButton6.getName(), g=jButton7.getName(), h=jButton8.getName(), i=jButton9.getName();
-        //String buttons[]={ a, b, c, d, e, f, g, h, i};
+        String m[]={"jButton1", "jButton2", "jButton3", "jButton4", "jButton5", "jButton6", "jButton7", "jButton8", "jButton9"};
         String randbtn=(m[new Random().nextInt(m.length)]);
         return randbtn;
     }
@@ -492,60 +469,76 @@ public class MainWindow extends javax.swing.JFrame {
     }
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String a=jButton1.getName(), b=jButton2.getName(), c=jButton3.getName(), d=jButton4.getName(), e=jButton5.getName(), f=jButton6.getName(), g=jButton7.getName(), h=jButton8.getName(), i=jButton9.getName();
+        //String a=jButton1.getName(), b=jButton2.getName(), c=jButton3.getName(), d=jButton4.getName(), e=jButton5.getName(), f=jButton6.getName(), g=jButton7.getName(), h=jButton8.getName(), i=jButton9.getName();
         String bla=randomButton();
         
         if(isX) {
             jButton1.setText("X");
             jButton1.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/X2.png"));
             isX=false;
-            if(cpu && bla.equals("jButton2")) {//jButton2.getName().equals(randomButton())) {
-                jButton2.setText("0");
+            if(cpu && bla.equals("jButton2")) {
+                jButton2.setText("O");
                 jButton2.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
                 jButton2.setEnabled(false);
                 isX=true;
+                CheckWin();
+                labelMove.setText(bla);
             }
             else if(cpu && bla.equals("jButton3")) {
-                jButton3.setText("0");
+                jButton3.setText("O");
                 jButton3.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
                 jButton3.setEnabled(false);
                 isX=true;
+                CheckWin();
+                labelMove.setText(bla);
             }
             else if(cpu && bla.equals("jButton4")) {
-                jButton4.setText("0");
+                jButton4.setText("O");
                 jButton4.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
                 jButton4.setEnabled(false);
                 isX=true;
+                CheckWin();
+                labelMove.setText(bla);
             }
             else if(cpu && bla.equals("jButton5")) {
-                jButton5.setText("0");
+                jButton5.setText("O");
                 jButton5.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
                 jButton5.setEnabled(false);
                 isX=true;
+                CheckWin();
+                labelMove.setText(bla);
             }
             else if(cpu && bla.equals("jButton6")) {
-                jButton6.setText("0");
+                jButton6.setText("O");
                 jButton6.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
                 jButton6.setEnabled(false);
                 isX=true;
+                CheckWin();
+                labelMove.setText(bla);
             }
             else if(cpu && bla.equals("jButton7")) {
-                jButton7.setText("0");
+                jButton7.setText("O");
                 jButton7.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
                 jButton7.setEnabled(false);
                 isX=true;
+                CheckWin();
+                labelMove.setText(bla);
             }
             else if(cpu && bla.equals("jButton8")) {
-                jButton8.setText("0");
+                jButton8.setText("O");
                 jButton8.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
                 jButton8.setEnabled(false);
                 isX=true;
+                CheckWin();
+                labelMove.setText(bla);
             }
             else if(cpu && bla.equals("jButton9")) {
-                jButton9.setText("0");
+                jButton9.setText("O");
                 jButton9.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
                 jButton9.setEnabled(false);
                 isX=true;
+                CheckWin();
+                labelMove.setText(bla);
             }
         }
         else {
@@ -553,52 +546,59 @@ public class MainWindow extends javax.swing.JFrame {
             jButton1.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
             isX=true;
             if(cpu && bla.equals("jButton2")) {//jButton2.getName().equals(randomButton())) {
-                jButton2.setText("0");
+                jButton2.setText("O");
                 jButton2.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
                 jButton2.setEnabled(false);
                 isX=true;
+                CheckWin();
             }
             else if(cpu && bla.equals("jButton3")) {
-                jButton3.setText("0");
+                jButton3.setText("O");
                 jButton3.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
                 jButton3.setEnabled(false);
                 isX=true;
+                CheckWin();
             }
             else if(cpu && bla.equals("jButton4")) {
-                jButton4.setText("0");
+                jButton4.setText("O");
                 jButton4.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
                 jButton4.setEnabled(false);
                 isX=true;
+                CheckWin();
             }
             else if(cpu && bla.equals("jButton5")) {
-                jButton5.setText("0");
+                jButton5.setText("O");
                 jButton5.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
                 jButton5.setEnabled(false);
                 isX=true;
             }
             else if(cpu && bla.equals("jButton6")) {
-                jButton6.setText("0");
+                jButton6.setText("O");
                 jButton6.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
                 jButton6.setEnabled(false);
                 isX=true;
+                CheckWin();
             }
             else if(cpu && bla.equals("jButton7")) {
-                jButton7.setText("0");
+                jButton7.setText("O");
                 jButton7.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
                 jButton7.setEnabled(false);
                 isX=true;
+                CheckWin();
             }
             else if(cpu && bla.equals("jButton8")) {
-                jButton8.setText("0");
+                jButton8.setText("O");
                 jButton8.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
                 jButton8.setEnabled(false);
                 isX=true;
+                CheckWin();
             }
             else if(cpu && bla.equals("jButton9")) {
-                jButton9.setText("0");
+                jButton9.setText("O");
                 jButton9.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
                 jButton9.setEnabled(false);
                 isX=true;
+                CheckWin();
             }
         }
         jButton1.setEnabled(false);
@@ -608,10 +608,75 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        String bla=randomButton();
         if(isX) {
             jButton2.setText("X");
             jButton2.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/X2.png"));
             isX=false;
+            if(cpu && bla.equals("jButton1")) {
+                jButton1.setText("O");
+                jButton1.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton1.setEnabled(false);
+                isX=true;
+                CheckWin();
+                labelMove.setText(bla);
+            }
+            else if(cpu && bla.equals("jButton3")) {
+                jButton3.setText("O");
+                jButton3.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton3.setEnabled(false);
+                isX=true;
+                CheckWin();
+                labelMove.setText(bla);
+            }
+            else if(cpu && bla.equals("jButton4")) {
+                jButton4.setText("O");
+                jButton4.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton4.setEnabled(false);
+                isX=true;
+                CheckWin();
+                labelMove.setText(bla);
+            }
+            else if(cpu && bla.equals("jButton5")) {
+                jButton5.setText("O");
+                jButton5.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton5.setEnabled(false);
+                isX=true;
+                CheckWin();
+                labelMove.setText(bla);
+            }
+            else if(cpu && bla.equals("jButton6")) {
+                jButton6.setText("O");
+                jButton6.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton6.setEnabled(false);
+                isX=true;
+                CheckWin();
+                labelMove.setText(bla);
+            }
+            else if(cpu && bla.equals("jButton7")) {
+                jButton7.setText("O");
+                jButton7.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton7.setEnabled(false);
+                isX=true;
+                CheckWin();
+                labelMove.setText(bla);
+            }
+            else if(cpu && bla.equals("jButton8")) {
+                jButton8.setText("O");
+                jButton8.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton8.setEnabled(false);
+                isX=true;
+                CheckWin();
+                labelMove.setText(bla);
+            }
+            else if(cpu && bla.equals("jButton9")) {
+                jButton9.setText("O");
+                jButton9.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton9.setEnabled(false);
+                isX=true;
+                CheckWin();
+                labelMove.setText(bla);
+            }
         }
         else {
             jButton2.setText("O");
@@ -625,10 +690,75 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        String bla=randomButton();
         if(isX) {
             jButton3.setText("X");
             jButton3.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/X2.png"));
             isX=false;
+            if(cpu && bla.equals("jButton2")) {
+                jButton2.setText("O");
+                jButton2.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton2.setEnabled(false);
+                isX=true;
+                CheckWin();
+                labelMove.setText(bla);
+            }
+            else if(cpu && bla.equals("jButton1")) {
+                jButton1.setText("O");
+                jButton1.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton1.setEnabled(false);
+                isX=true;
+                CheckWin();
+                labelMove.setText(bla);
+            }
+            else if(cpu && bla.equals("jButton4")) {
+                jButton4.setText("O");
+                jButton4.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton4.setEnabled(false);
+                isX=true;
+                CheckWin();
+                labelMove.setText(bla);
+            }
+            else if(cpu && bla.equals("jButton5")) {
+                jButton5.setText("O");
+                jButton5.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton5.setEnabled(false);
+                isX=true;
+                CheckWin();
+                labelMove.setText(bla);
+            }
+            else if(cpu && bla.equals("jButton6")) {
+                jButton6.setText("O");
+                jButton6.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton6.setEnabled(false);
+                isX=true;
+                CheckWin();
+                labelMove.setText(bla);
+            }
+            else if(cpu && bla.equals("jButton7")) {
+                jButton7.setText("O");
+                jButton7.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton7.setEnabled(false);
+                isX=true;
+                CheckWin();
+                labelMove.setText(bla);
+            }
+            else if(cpu && bla.equals("jButton8")) {
+                jButton8.setText("O");
+                jButton8.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton8.setEnabled(false);
+                isX=true;
+                CheckWin();
+                labelMove.setText(bla);
+            }
+            else if(cpu && bla.equals("jButton9")) {
+                jButton9.setText("O");
+                jButton9.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton9.setEnabled(false);
+                isX=true;
+                CheckWin();
+                labelMove.setText(bla);
+            }
         }
         else {
             jButton3.setText("O");
@@ -642,10 +772,75 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        String bla=randomButton();
         if(isX) {
             jButton4.setText("X");
             jButton4.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/X2.png"));
             isX=false;
+            if(cpu && bla.equals("jButton2")) {
+                jButton2.setText("O");
+                jButton2.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton2.setEnabled(false);
+                isX=true;
+                CheckWin();
+                labelMove.setText(bla);
+            }
+            else if(cpu && bla.equals("jButton3")) {
+                jButton3.setText("O");
+                jButton3.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton3.setEnabled(false);
+                isX=true;
+                CheckWin();
+                labelMove.setText(bla);
+            }
+            else if(cpu && bla.equals("jButton1")) {
+                jButton1.setText("O");
+                jButton1.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton1.setEnabled(false);
+                isX=true;
+                CheckWin();
+                labelMove.setText(bla);
+            }
+            else if(cpu && bla.equals("jButton5")) {
+                jButton5.setText("O");
+                jButton5.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton5.setEnabled(false);
+                isX=true;
+                CheckWin();
+                labelMove.setText(bla);
+            }
+            else if(cpu && bla.equals("jButton6")) {
+                jButton6.setText("O");
+                jButton6.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton6.setEnabled(false);
+                isX=true;
+                CheckWin();
+                labelMove.setText(bla);
+            }
+            else if(cpu && bla.equals("jButton7")) {
+                jButton7.setText("O");
+                jButton7.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton7.setEnabled(false);
+                isX=true;
+                CheckWin();
+                labelMove.setText(bla);
+            }
+            else if(cpu && bla.equals("jButton8")) {
+                jButton8.setText("O");
+                jButton8.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton8.setEnabled(false);
+                isX=true;
+                CheckWin();
+                labelMove.setText(bla);
+            }
+            else if(cpu && bla.equals("jButton9")) {
+                jButton9.setText("O");
+                jButton9.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton9.setEnabled(false);
+                isX=true;
+                CheckWin();
+                labelMove.setText(bla);
+            }
         }
         else {
             jButton4.setText("O");
@@ -659,10 +854,75 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        String bla=randomButton();
         if(isX) {
             jButton5.setText("X");
             jButton5.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/X2.png"));
             isX=false;
+            if(cpu && bla.equals("jButton2")) {
+                jButton2.setText("O");
+                jButton2.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton2.setEnabled(false);
+                isX=true;
+                CheckWin();
+                labelMove.setText(bla);
+            }
+            else if(cpu && bla.equals("jButton3")) {
+                jButton3.setText("O");
+                jButton3.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton3.setEnabled(false);
+                isX=true;
+                CheckWin();
+                labelMove.setText(bla);
+            }
+            else if(cpu && bla.equals("jButton4")) {
+                jButton4.setText("O");
+                jButton4.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton4.setEnabled(false);
+                isX=true;
+                CheckWin();
+                labelMove.setText(bla);
+            }
+            else if(cpu && bla.equals("jButton1")) {
+                jButton1.setText("O");
+                jButton1.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton1.setEnabled(false);
+                isX=true;
+                CheckWin();
+                labelMove.setText(bla);
+            }
+            else if(cpu && bla.equals("jButton6")) {
+                jButton6.setText("O");
+                jButton6.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton6.setEnabled(false);
+                isX=true;
+                CheckWin();
+                labelMove.setText(bla);
+            }
+            else if(cpu && bla.equals("jButton7")) {
+                jButton7.setText("O");
+                jButton7.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton7.setEnabled(false);
+                isX=true;
+                CheckWin();
+                labelMove.setText(bla);
+            }
+            else if(cpu && bla.equals("jButton8")) {
+                jButton8.setText("O");
+                jButton8.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton8.setEnabled(false);
+                isX=true;
+                CheckWin();
+                labelMove.setText(bla);
+            }
+            else if(cpu && bla.equals("jButton9")) {
+                jButton9.setText("O");
+                jButton9.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton9.setEnabled(false);
+                isX=true;
+                CheckWin();
+                labelMove.setText(bla);
+            }
         }
         else {
             jButton5.setText("O");
@@ -676,10 +936,75 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        String bla=randomButton();
         if(isX) {
             jButton6.setText("X");
             jButton6.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/X2.png"));
             isX=false;
+            if(cpu && bla.equals("jButton2")) {
+                jButton2.setText("O");
+                jButton2.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton2.setEnabled(false);
+                isX=true;
+                CheckWin();
+                labelMove.setText(bla);
+            }
+            else if(cpu && bla.equals("jButton3")) {
+                jButton3.setText("O");
+                jButton3.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton3.setEnabled(false);
+                isX=true;
+                CheckWin();
+                labelMove.setText(bla);
+            }
+            else if(cpu && bla.equals("jButton4")) {
+                jButton4.setText("O");
+                jButton4.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton4.setEnabled(false);
+                isX=true;
+                CheckWin();
+                labelMove.setText(bla);
+            }
+            else if(cpu && bla.equals("jButton5")) {
+                jButton5.setText("O");
+                jButton5.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton5.setEnabled(false);
+                isX=true;
+                CheckWin();
+                labelMove.setText(bla);
+            }
+            else if(cpu && bla.equals("jButton1")) {
+                jButton1.setText("O");
+                jButton1.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton1.setEnabled(false);
+                isX=true;
+                CheckWin();
+                labelMove.setText(bla);
+            }
+            else if(cpu && bla.equals("jButton7")) {
+                jButton7.setText("O");
+                jButton7.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton7.setEnabled(false);
+                isX=true;
+                CheckWin();
+                labelMove.setText(bla);
+            }
+            else if(cpu && bla.equals("jButton8")) {
+                jButton8.setText("O");
+                jButton8.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton8.setEnabled(false);
+                isX=true;
+                CheckWin();
+                labelMove.setText(bla);
+            }
+            else if(cpu && bla.equals("jButton9")) {
+                jButton9.setText("O");
+                jButton9.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton9.setEnabled(false);
+                isX=true;
+                CheckWin();
+                labelMove.setText(bla);
+            }
         }
         else {
             jButton6.setText("O");
@@ -693,10 +1018,75 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        String bla=randomButton();
         if(isX) {
             jButton7.setText("X");
             jButton7.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/X2.png"));
             isX=false;
+            if(cpu && bla.equals("jButton2")) {
+                jButton2.setText("O");
+                jButton2.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton2.setEnabled(false);
+                isX=true;
+                CheckWin();
+                labelMove.setText(bla);
+            }
+            else if(cpu && bla.equals("jButton3")) {
+                jButton3.setText("O");
+                jButton3.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton3.setEnabled(false);
+                isX=true;
+                CheckWin();
+                labelMove.setText(bla);
+            }
+            else if(cpu && bla.equals("jButton4")) {
+                jButton4.setText("O");
+                jButton4.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton4.setEnabled(false);
+                isX=true;
+                CheckWin();
+                labelMove.setText(bla);
+            }
+            else if(cpu && bla.equals("jButton5")) {
+                jButton5.setText("O");
+                jButton5.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton5.setEnabled(false);
+                isX=true;
+                CheckWin();
+                labelMove.setText(bla);
+            }
+            else if(cpu && bla.equals("jButton6")) {
+                jButton6.setText("O");
+                jButton6.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton6.setEnabled(false);
+                isX=true;
+                CheckWin();
+                labelMove.setText(bla);
+            }
+            else if(cpu && bla.equals("jButton1")) {
+                jButton1.setText("O");
+                jButton1.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton1.setEnabled(false);
+                isX=true;
+                CheckWin();
+                labelMove.setText(bla);
+            }
+            else if(cpu && bla.equals("jButton8")) {
+                jButton8.setText("O");
+                jButton8.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton8.setEnabled(false);
+                isX=true;
+                CheckWin();
+                labelMove.setText(bla);
+            }
+            else if(cpu && bla.equals("jButton9")) {
+                jButton9.setText("O");
+                jButton9.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton9.setEnabled(false);
+                isX=true;
+                CheckWin();
+                labelMove.setText(bla);
+            }
         }
         else {
             jButton7.setText("O");
@@ -710,10 +1100,75 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        String bla=randomButton();
         if(isX) {
             jButton8.setText("X");
             jButton8.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/X2.png"));
             isX=false;
+            if(cpu && bla.equals("jButton2")) {
+                jButton2.setText("O");
+                jButton2.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton2.setEnabled(false);
+                isX=true;
+                CheckWin();
+                labelMove.setText(bla);
+            }
+            else if(cpu && bla.equals("jButton3")) {
+                jButton3.setText("O");
+                jButton3.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton3.setEnabled(false);
+                isX=true;
+                CheckWin();
+                labelMove.setText(bla);
+            }
+            else if(cpu && bla.equals("jButton4")) {
+                jButton4.setText("O");
+                jButton4.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton4.setEnabled(false);
+                isX=true;
+                CheckWin();
+                labelMove.setText(bla);
+            }
+            else if(cpu && bla.equals("jButton5")) {
+                jButton5.setText("O");
+                jButton5.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton5.setEnabled(false);
+                isX=true;
+                CheckWin();
+                labelMove.setText(bla);
+            }
+            else if(cpu && bla.equals("jButton6")) {
+                jButton6.setText("O");
+                jButton6.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton6.setEnabled(false);
+                isX=true;
+                CheckWin();
+                labelMove.setText(bla);
+            }
+            else if(cpu && bla.equals("jButton7")) {
+                jButton7.setText("O");
+                jButton7.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton7.setEnabled(false);
+                isX=true;
+                CheckWin();
+                labelMove.setText(bla);
+            }
+            else if(cpu && bla.equals("jButton1")) {
+                jButton1.setText("O");
+                jButton1.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton1.setEnabled(false);
+                isX=true;
+                CheckWin();
+                labelMove.setText(bla);
+            }
+            else if(cpu && bla.equals("jButton9")) {
+                jButton9.setText("O");
+                jButton9.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton9.setEnabled(false);
+                isX=true;
+                CheckWin();
+                labelMove.setText(bla);
+            }
         }
         else {
             jButton8.setText("O");
@@ -727,10 +1182,75 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        String bla=randomButton();
         if(isX) {
             jButton9.setText("X");
             jButton9.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/X2.png"));
             isX=false;
+            if(cpu && bla.equals("jButton2")) {
+                jButton2.setText("O");
+                jButton2.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton2.setEnabled(false);
+                isX=true;
+                CheckWin();
+                labelMove.setText(bla);
+            }
+            else if(cpu && bla.equals("jButton3")) {
+                jButton3.setText("O");
+                jButton3.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton3.setEnabled(false);
+                isX=true;
+                CheckWin();
+                labelMove.setText(bla);
+            }
+            else if(cpu && bla.equals("jButton4")) {
+                jButton4.setText("O");
+                jButton4.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton4.setEnabled(false);
+                isX=true;
+                CheckWin();
+                labelMove.setText(bla);
+            }
+            else if(cpu && bla.equals("jButton5")) {
+                jButton5.setText("O");
+                jButton5.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton5.setEnabled(false);
+                isX=true;
+                CheckWin();
+                labelMove.setText(bla);
+            }
+            else if(cpu && bla.equals("jButton6")) {
+                jButton6.setText("O");
+                jButton6.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton6.setEnabled(false);
+                isX=true;
+                CheckWin();
+                labelMove.setText(bla);
+            }
+            else if(cpu && bla.equals("jButton7")) {
+                jButton7.setText("O");
+                jButton7.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton7.setEnabled(false);
+                isX=true;
+                CheckWin();
+                labelMove.setText(bla);
+            }
+            else if(cpu && bla.equals("jButton8")) {
+                jButton8.setText("O");
+                jButton8.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton8.setEnabled(false);
+                isX=true;
+                CheckWin();
+                labelMove.setText(bla);
+            }
+            else if(cpu && bla.equals("jButton1")) {
+                jButton1.setText("O");
+                jButton1.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                jButton1.setEnabled(false);
+                isX=true;
+                CheckWin();
+                labelMove.setText(bla);
+            }
         }
         else {
             jButton9.setText("O");
