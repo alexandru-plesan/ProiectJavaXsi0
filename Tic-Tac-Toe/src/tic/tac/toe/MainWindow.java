@@ -433,39 +433,35 @@ public class MainWindow extends javax.swing.JFrame {
             jLabel2.setVisible(true);
         }
     }
-    
-    //String a.equals(jButton1.getName(), b=jButton2.getName(), c=jButton3.getName(), d=jButton4.getName(), e=jButton5.getName(), f=jButton6.getName(), g=jButton7.getName(), h=jButton8.getName(), i=jButton9.getName();
-    
+   
     public String randomButton() {//generam un buton random si returnam numele sau
-        String m[]={"jButton1", "jButton2", "jButton3", "jButton4", "jButton5", "jButton6", "jButton7", "jButton8", "jButton9"};
+       String m[]={"jButton1", "jButton2", "jButton3", "jButton4", "jButton5", "jButton6", "jButton7", "jButton8", "jButton9"};
        String randbtn;
        
-             if(btn1.equals("X") || btn1.equals("O"))
-                m[1]="nonjButton";
-            if( btn2.equals("X") || btn2.equals("O"))
-                m[2]="nonjButton";
-            if( btn3.equals("X") || btn3.equals("O"))
-                m[3]="nonjButton";
-            if( btn4.equals("X") || btn4.equals("O"))
-                m[4]="nonjButton";
-            if( btn5.equals("X") || btn5.equals("O"))
-                m[5]="nonjButton";
-            if( btn6.equals("X") || btn6.equals("O"))
-                m[6]="nonjButton";
-            if( btn7.equals("X") || btn7.equals("O"))
-                m[7]="nonjButton";
-            if( btn8.equals("X") || btn8.equals("O"))
-                m[8]="nonjButton";
-            if( btn9.equals("X") || btn9.equals("O"))
-                m[9]="nonjButton";
-        
+       if(btn1.equals("X") || btn1.equals("O"))
+            m[0]="nonjButton";
+       if( btn2.equals("X") || btn2.equals("O"))
+            m[1]="nonjButton";
+       if( btn3.equals("X") || btn3.equals("O"))
+            m[2]="nonjButton";
+       if( btn4.equals("X") || btn4.equals("O"))
+            m[3]="nonjButton";
+       if( btn5.equals("X") || btn5.equals("O"))
+            m[4]="nonjButton";
+       if( btn6.equals("X") || btn6.equals("O"))
+            m[5]="nonjButton";
+       if( btn7.equals("X") || btn7.equals("O"))
+            m[6]="nonjButton";
+       if( btn8.equals("X") || btn8.equals("O"))
+            m[7]="nonjButton";
+       if( btn9.equals("X") || btn9.equals("O"))
+            m[8]="nonjButton";        
        do {
            randbtn=(m[new Random().nextInt(m.length)]);
        } while(randbtn.equals("nonjButton"));
-        
+       System.out.println("Am generat ramdom " + randbtn);
        return randbtn;
-    }
-  
+    }  
     
     public void checkMove() {//verificam ce player este la rand
         String whoMove;
@@ -479,757 +475,948 @@ public class MainWindow extends javax.swing.JFrame {
     }
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String bla=randomButton();
-        
-        if(isX) {
+        if (isX){
             jButton1.setText("X");
             jButton1.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/X2.png"));
+            jButton1.setEnabled(false);
             isX=false;
-             btn1 = "X";
-            if(cpu){
-                if (bla.equals("jButton2")) {
-                jButton2.setText("O");
-                jButton2.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton2.setEnabled(false);
-                isX=true;
-               btn2 = "O";
-                 checkMove();
-            }
-            else if(bla.equals("jButton3")) {
-                jButton3.setText("O");
-                jButton3.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton3.setEnabled(false);
-                isX=true;
-               btn3 = "O";
-                 checkMove();
-            }
-            else if(bla.equals("jButton4")) {
-                jButton4.setText("O");
-                jButton4.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton4.setEnabled(false);
-                isX=true;
-                btn4 = "O";
-                 checkMove();
-            }
-            else if(bla.equals("jButton5")) {
-                jButton5.setText("O");
-                jButton5.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton5.setEnabled(false);
-                isX=true;
-                btn5 = "O";
-                 checkMove();
-            }
-            else if(bla.equals("jButton6")) {
-                jButton6.setText("O");
-                jButton6.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton6.setEnabled(false);
-                isX=true;
-                btn6 = "O";
-                 checkMove();
-            }
-            else if(bla.equals("jButton7")) {
-                jButton7.setText("O");
-                jButton7.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton7.setEnabled(false);
-                isX=true;
-                btn7 = "O";
-                 checkMove();
-            }
-            else if(bla.equals("jButton8")) {
-                jButton8.setText("O");
-                jButton8.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton8.setEnabled(false);
-                isX=true;
-                btn8 = "O";
-                 checkMove();
-            }
-            else if(bla.equals("jButton9")) {
-                jButton9.setText("O");
-                jButton9.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton9.setEnabled(false);
-                isX=true;
-                btn9 = "O";
-                 checkMove();
-            }
-        } }
-        else {
+            btn1 = "X";
+            CheckWin();
+            
+            if (cpu)
+                {
+                    String bla=randomButton();
+                    if(bla.equals("jButton1")) {
+                         jButton1.setText("O");
+                         jButton1.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton1.setEnabled(false);
+                         isX=true;
+                         btn1 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton2")) {
+                         jButton2.setText("O");
+                         jButton2.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton2.setEnabled(false);
+                         isX=true;
+                         btn2 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton3")) {
+                         jButton3.setText("O");
+                         jButton3.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton3.setEnabled(false);
+                         isX=true;
+                         btn3 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton4")) {
+                         jButton4.setText("O");
+                         jButton4.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton4.setEnabled(false);
+                         isX=true;
+                         btn4 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton5")) {
+                         jButton5.setText("O");
+                         jButton5.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton5.setEnabled(false);
+                         isX=true;
+                         btn5 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton6")) {
+                         jButton6.setText("O");
+                         jButton6.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton6.setEnabled(false);
+                         isX=true;
+                         btn6 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton7")) {
+                         jButton7.setText("O");
+                         jButton7.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton7.setEnabled(false);
+                         isX=true;
+                         btn7 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton8")) {
+                         jButton8.setText("O");
+                         jButton8.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton8.setEnabled(false);
+                         isX=true;
+                         btn8 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton9")) {
+                         jButton9.setText("O");
+                         jButton9.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton9.setEnabled(false);
+                         isX=true;
+                         btn9 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+             }
+        }
+        else{
             jButton1.setText("O");
             jButton1.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+            jButton1.setEnabled(false);
             isX=true;
             btn1 = "O";
+            CheckWin();
         }
-        jButton1.setEnabled(false);
-        CheckWin();
-        checkMove();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        String bla=randomButton();
-        if(isX) {
+         if (isX){
             jButton2.setText("X");
             jButton2.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/X2.png"));
+            jButton2.setEnabled(false);
             isX=false;
             btn2 = "X";
-            if(cpu){
-                if (bla.equals("jButton1")) {
-                jButton1.setText("O");
-                jButton1.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton1.setEnabled(false);
-                isX=true;
-               btn1 = "O";
-                 checkMove();
-            }
-            else if(bla.equals("jButton3")) {
-                jButton3.setText("O");
-                jButton3.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton3.setEnabled(false);
-                isX=true;
-               btn3 = "O";
-                 checkMove();
-            }
-            else if(bla.equals("jButton4")) {
-                jButton4.setText("O");
-                jButton4.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton4.setEnabled(false);
-                isX=true;
-                btn4 = "O";
-                 checkMove();
-            }
-            else if(bla.equals("jButton5")) {
-                jButton5.setText("O");
-                jButton5.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton5.setEnabled(false);
-                isX=true;
-                btn5 = "O";
-                 checkMove();
-            }
-            else if(bla.equals("jButton6")) {
-                jButton6.setText("O");
-                jButton6.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton6.setEnabled(false);
-                isX=true;
-                btn6 = "O";
-                 checkMove();
-            }
-            else if(bla.equals("jButton7")) {
-                jButton7.setText("O");
-                jButton7.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton7.setEnabled(false);
-                isX=true;
-                btn7 = "O";
-                 checkMove();
-            }
-            else if(bla.equals("jButton8")) {
-                jButton8.setText("O");
-                jButton8.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton8.setEnabled(false);
-                isX=true;
-                btn8 = "O";
-                 checkMove();
-            }
-            else if(bla.equals("jButton9")) {
-                jButton9.setText("O");
-                jButton9.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton9.setEnabled(false);
-                isX=true;
-                btn9 = "O";
-                 checkMove();
-            }
-        } }
-        else {
+            CheckWin();
+            
+            if (cpu)
+                {
+                    String bla=randomButton();
+                    if(bla.equals("jButton1")) {
+                         jButton1.setText("O");
+                         jButton1.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton1.setEnabled(false);
+                         isX=true;
+                         btn1 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton2")) {
+                         jButton2.setText("O");
+                         jButton2.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton2.setEnabled(false);
+                         isX=true;
+                         btn2 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton3")) {
+                         jButton3.setText("O");
+                         jButton3.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton3.setEnabled(false);
+                         isX=true;
+                         btn3 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton4")) {
+                         jButton4.setText("O");
+                         jButton4.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton4.setEnabled(false);
+                         isX=true;
+                         btn4 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton5")) {
+                         jButton5.setText("O");
+                         jButton5.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton5.setEnabled(false);
+                         isX=true;
+                         btn5 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton6")) {
+                         jButton6.setText("O");
+                         jButton6.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton6.setEnabled(false);
+                         isX=true;
+                         btn6 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton7")) {
+                         jButton7.setText("O");
+                         jButton7.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton7.setEnabled(false);
+                         isX=true;
+                         btn7 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton8")) {
+                         jButton8.setText("O");
+                         jButton8.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton8.setEnabled(false);
+                         isX=true;
+                         btn8 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton9")) {
+                         jButton9.setText("O");
+                         jButton9.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton9.setEnabled(false);
+                         isX=true;
+                         btn9 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+             }
+        }
+        else{
             jButton2.setText("O");
             jButton2.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+            jButton2.setEnabled(false);
             isX=true;
             btn2 = "O";
+            CheckWin();
         }
-        jButton2.setEnabled(false);
-        CheckWin();
-        checkMove();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        String bla=randomButton();
-        if(isX) {
+         if (isX){
             jButton3.setText("X");
             jButton3.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/X2.png"));
+            jButton3.setEnabled(false);
             isX=false;
             btn3 = "X";
-            if(cpu){
-                if (bla.equals("jButton2")) {
-                jButton2.setText("O");
-                jButton2.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton2.setEnabled(false);
-                isX=true;
-               btn2 = "O";
-                 checkMove();
-            }
-            else if(bla.equals("jButton1")) {
-                jButton1.setText("O");
-                jButton1.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton1.setEnabled(false);
-                isX=true;
-               btn1 = "O";
-                 checkMove();
-            }
-            else if(bla.equals("jButton4")) {
-                jButton4.setText("O");
-                jButton4.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton4.setEnabled(false);
-                isX=true;
-                btn4 = "O";
-                 checkMove();
-            }
-            else if(bla.equals("jButton5")) {
-                jButton5.setText("O");
-                jButton5.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton5.setEnabled(false);
-                isX=true;
-                btn5 = "O";
-                 checkMove();
-            }
-            else if(bla.equals("jButton6")) {
-                jButton6.setText("O");
-                jButton6.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton6.setEnabled(false);
-                isX=true;
-                btn6 = "O";
-                 checkMove();
-            }
-            else if(bla.equals("jButton7")) {
-                jButton7.setText("O");
-                jButton7.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton7.setEnabled(false);
-                isX=true;
-                btn7 = "O";
-                 checkMove();
-            }
-            else if(bla.equals("jButton8")) {
-                jButton8.setText("O");
-                jButton8.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton8.setEnabled(false);
-                isX=true;
-                btn8 = "O";
-                 checkMove();
-            }
-            else if(bla.equals("jButton9")) {
-                jButton9.setText("O");
-                jButton9.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton9.setEnabled(false);
-                isX=true;
-                btn9 = "O";
-                 checkMove();
-            }
-        } }
-        else {
+            CheckWin();
+            
+            if (cpu)
+                {
+                    String bla=randomButton();
+                    if(bla.equals("jButton1")) {
+                         jButton1.setText("O");
+                         jButton1.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton1.setEnabled(false);
+                         isX=true;
+                         btn1 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton2")) {
+                         jButton2.setText("O");
+                         jButton2.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton2.setEnabled(false);
+                         isX=true;
+                         btn2 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton3")) {
+                         jButton3.setText("O");
+                         jButton3.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton3.setEnabled(false);
+                         isX=true;
+                         btn3 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton4")) {
+                         jButton4.setText("O");
+                         jButton4.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton4.setEnabled(false);
+                         isX=true;
+                         btn4 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton5")) {
+                         jButton5.setText("O");
+                         jButton5.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton5.setEnabled(false);
+                         isX=true;
+                         btn5 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton6")) {
+                         jButton6.setText("O");
+                         jButton6.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton6.setEnabled(false);
+                         isX=true;
+                         btn6 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton7")) {
+                         jButton7.setText("O");
+                         jButton7.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton7.setEnabled(false);
+                         isX=true;
+                         btn7 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton8")) {
+                         jButton8.setText("O");
+                         jButton8.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton8.setEnabled(false);
+                         isX=true;
+                         btn8 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton9")) {
+                         jButton9.setText("O");
+                         jButton9.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton9.setEnabled(false);
+                         isX=true;
+                         btn9 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+             }
+        }
+        else{
             jButton3.setText("O");
             jButton3.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+            jButton3.setEnabled(false);
             isX=true;
-           btn3 = "O"; 
+            btn3 = "O";
+            CheckWin();
         }
-        jButton3.setEnabled(false);
-        CheckWin();
-        checkMove();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        String bla=randomButton();
-        if(isX) {
+         if (isX){
             jButton4.setText("X");
             jButton4.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/X2.png"));
+            jButton4.setEnabled(false);
             isX=false;
             btn4 = "X";
-            if(cpu && bla.equals("jButton2")) {
-                jButton2.setText("O");
-                jButton2.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton2.setEnabled(false);
-                isX=true;
-               btn2 = "O";
-                 checkMove();
-            }
-            else if(cpu && bla.equals("jButton3")) {
-                jButton3.setText("O");
-                jButton3.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton3.setEnabled(false);
-                isX=true;
-               btn3 = "O";
-                 checkMove();
-            }
-            else if(cpu && bla.equals("jButton1")) {
-                jButton1.setText("O");
-                jButton1.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton1.setEnabled(false);
-                isX=true;
-                btn1 = "O";
-                 checkMove();
-            }
-            else if(cpu && bla.equals("jButton5")) {
-                jButton5.setText("O");
-                jButton5.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton5.setEnabled(false);
-                isX=true;
-                btn5 = "O";
-                 checkMove();
-            }
-            else if(cpu && bla.equals("jButton6")) {
-                jButton6.setText("O");
-                jButton6.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton6.setEnabled(false);
-                isX=true;
-                btn6 = "O";
-                 checkMove();
-            }
-            else if(cpu && bla.equals("jButton7")) {
-                jButton7.setText("O");
-                jButton7.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton7.setEnabled(false);
-                isX=true;
-                btn7 = "O";
-                 checkMove();
-            }
-            else if(cpu && bla.equals("jButton8")) {
-                jButton8.setText("O");
-                jButton8.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton8.setEnabled(false);
-                isX=true;
-                btn8 = "O";
-                 checkMove();
-            }
-            else if(cpu && bla.equals("jButton9")) {
-                jButton9.setText("O");
-                jButton9.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton9.setEnabled(false);
-                isX=true;
-                btn9 = "O";
-                 checkMove();
-            }
+            CheckWin();
+            
+            if (cpu)
+                {
+                    String bla=randomButton();
+                    if(bla.equals("jButton1")) {
+                         jButton1.setText("O");
+                         jButton1.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton1.setEnabled(false);
+                         isX=true;
+                         btn1 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton2")) {
+                         jButton2.setText("O");
+                         jButton2.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton2.setEnabled(false);
+                         isX=true;
+                         btn2 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton3")) {
+                         jButton3.setText("O");
+                         jButton3.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton3.setEnabled(false);
+                         isX=true;
+                         btn3 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton4")) {
+                         jButton4.setText("O");
+                         jButton4.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton4.setEnabled(false);
+                         isX=true;
+                         btn4 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton5")) {
+                         jButton5.setText("O");
+                         jButton5.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton5.setEnabled(false);
+                         isX=true;
+                         btn5 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton6")) {
+                         jButton6.setText("O");
+                         jButton6.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton6.setEnabled(false);
+                         isX=true;
+                         btn6 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton7")) {
+                         jButton7.setText("O");
+                         jButton7.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton7.setEnabled(false);
+                         isX=true;
+                         btn7 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton8")) {
+                         jButton8.setText("O");
+                         jButton8.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton8.setEnabled(false);
+                         isX=true;
+                         btn8 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton9")) {
+                         jButton9.setText("O");
+                         jButton9.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton9.setEnabled(false);
+                         isX=true;
+                         btn9 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+             }
         }
-        else {
+        else{
             jButton4.setText("O");
             jButton4.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+            jButton4.setEnabled(false);
             isX=true;
             btn4 = "O";
+            CheckWin();
         }
-        jButton4.setEnabled(false);
-        CheckWin();
-        checkMove();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        String bla=randomButton();
-        if(isX) {
+         if (isX){
             jButton5.setText("X");
             jButton5.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/X2.png"));
+            jButton5.setEnabled(false);
             isX=false;
             btn5 = "X";
-            if(cpu && bla.equals("jButton2")) {
-                jButton2.setText("O");
-                jButton2.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton2.setEnabled(false);
-                isX=true;
-               btn2 = "O";
-                 checkMove();
-            }
-            else if(cpu && bla.equals("jButton3")) {
-                jButton3.setText("O");
-                jButton3.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton3.setEnabled(false);
-                isX=true;
-               btn3 = "O";
-                 checkMove();
-            }
-            else if(cpu && bla.equals("jButton4")) {
-                jButton4.setText("O");
-                jButton4.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton4.setEnabled(false);
-                isX=true;
-                btn4 = "O";
-                 checkMove();
-            }
-            else if(cpu && bla.equals("jButton1")) {
-                jButton1.setText("O");
-                jButton1.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton1.setEnabled(false);
-                isX=true;
-                btn1 = "O";
-                 checkMove();
-            }
-            else if(cpu && bla.equals("jButton6")) {
-                jButton6.setText("O");
-                jButton6.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton6.setEnabled(false);
-                isX=true;
-                btn6 = "O";
-                 checkMove();
-            }
-            else if(cpu && bla.equals("jButton7")) {
-                jButton7.setText("O");
-                jButton7.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton7.setEnabled(false);
-                isX=true;
-                btn7 = "O";
-                 checkMove();
-            }
-            else if(cpu && bla.equals("jButton8")) {
-                jButton8.setText("O");
-                jButton8.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton8.setEnabled(false);
-                isX=true;
-                btn8 = "O";
-                 checkMove();
-            }
-            else if(cpu && bla.equals("jButton9")) {
-                jButton9.setText("O");
-                jButton9.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton9.setEnabled(false);
-                isX=true;
-                btn9 = "O";
-                 checkMove();
-            }
+            CheckWin();
+            
+            if (cpu)
+                {
+                    String bla=randomButton();
+                    if(bla.equals("jButton1")) {
+                         jButton1.setText("O");
+                         jButton1.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton1.setEnabled(false);
+                         isX=true;
+                         btn1 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton2")) {
+                         jButton2.setText("O");
+                         jButton2.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton2.setEnabled(false);
+                         isX=true;
+                         btn2 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton3")) {
+                         jButton3.setText("O");
+                         jButton3.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton3.setEnabled(false);
+                         isX=true;
+                         btn3 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton4")) {
+                         jButton4.setText("O");
+                         jButton4.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton4.setEnabled(false);
+                         isX=true;
+                         btn4 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton5")) {
+                         jButton5.setText("O");
+                         jButton5.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton5.setEnabled(false);
+                         isX=true;
+                         btn5 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton6")) {
+                         jButton6.setText("O");
+                         jButton6.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton6.setEnabled(false);
+                         isX=true;
+                         btn6 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton7")) {
+                         jButton7.setText("O");
+                         jButton7.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton7.setEnabled(false);
+                         isX=true;
+                         btn7 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton8")) {
+                         jButton8.setText("O");
+                         jButton8.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton8.setEnabled(false);
+                         isX=true;
+                         btn8 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton9")) {
+                         jButton9.setText("O");
+                         jButton9.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton9.setEnabled(false);
+                         isX=true;
+                         btn9 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+             }
         }
-        else {
+        else{
             jButton5.setText("O");
             jButton5.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+            jButton5.setEnabled(false);
             isX=true;
-            btn5 ="O";
+            btn5 = "O";
+            CheckWin();
         }
-        jButton5.setEnabled(false);
-        CheckWin();
-        checkMove();
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        String bla=randomButton();
-        if(isX) {
+         if (isX){
             jButton6.setText("X");
             jButton6.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/X2.png"));
+            jButton6.setEnabled(false);
             isX=false;
             btn6 = "X";
-            if(cpu && bla.equals("jButton2")) {
-                jButton2.setText("O");
-                jButton2.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton2.setEnabled(false);
-                isX=true;
-               btn2 = "O";
-                 checkMove();
-            }
-            else if(cpu && bla.equals("jButton3")) {
-                jButton3.setText("O");
-                jButton3.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton3.setEnabled(false);
-                isX=true;
-               btn3 = "O";
-                 checkMove();
-            }
-            else if(cpu && bla.equals("jButton4")) {
-                jButton4.setText("O");
-                jButton4.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton4.setEnabled(false);
-                isX=true;
-                btn4 = "O";
-                 checkMove();
-            }
-            else if(cpu && bla.equals("jButton5")) {
-                jButton5.setText("O");
-                jButton5.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton5.setEnabled(false);
-                isX=true;
-                btn5 = "O";
-                 checkMove();
-            }
-            else if(cpu && bla.equals("jButton1")) {
-                jButton1.setText("O");
-                jButton1.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton1.setEnabled(false);
-                isX=true;
-                btn1 = "O";
-                 checkMove();
-            }
-            else if(cpu && bla.equals("jButton7")) {
-                jButton7.setText("O");
-                jButton7.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton7.setEnabled(false);
-                isX=true;
-                btn7 = "O";
-                 checkMove();
-            }
-            else if(cpu && bla.equals("jButton8")) {
-                jButton8.setText("O");
-                jButton8.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton8.setEnabled(false);
-                isX=true;
-                btn8 = "O";
-                 checkMove();
-            }
-            else if(cpu && bla.equals("jButton9")) {
-                jButton9.setText("O");
-                jButton9.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton9.setEnabled(false);
-                isX=true;
-                btn9 = "O";
-                 checkMove();
-            }
+            CheckWin();
+            
+            if (cpu)
+                {
+                    String bla=randomButton();
+                    if(bla.equals("jButton1")) {
+                         jButton1.setText("O");
+                         jButton1.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton1.setEnabled(false);
+                         isX=true;
+                         btn1 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton2")) {
+                         jButton2.setText("O");
+                         jButton2.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton2.setEnabled(false);
+                         isX=true;
+                         btn2 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton3")) {
+                         jButton3.setText("O");
+                         jButton3.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton3.setEnabled(false);
+                         isX=true;
+                         btn3 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton4")) {
+                         jButton4.setText("O");
+                         jButton4.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton4.setEnabled(false);
+                         isX=true;
+                         btn4 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton5")) {
+                         jButton5.setText("O");
+                         jButton5.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton5.setEnabled(false);
+                         isX=true;
+                         btn5 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton6")) {
+                         jButton6.setText("O");
+                         jButton6.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton6.setEnabled(false);
+                         isX=true;
+                         btn6 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton7")) {
+                         jButton7.setText("O");
+                         jButton7.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton7.setEnabled(false);
+                         isX=true;
+                         btn7 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton8")) {
+                         jButton8.setText("O");
+                         jButton8.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton8.setEnabled(false);
+                         isX=true;
+                         btn8 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton9")) {
+                         jButton9.setText("O");
+                         jButton9.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton9.setEnabled(false);
+                         isX=true;
+                         btn9 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+             }
         }
-        else {
+        else{
             jButton6.setText("O");
             jButton6.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+            jButton6.setEnabled(false);
             isX=true;
             btn6 = "O";
-            checkMove();
+            CheckWin();
         }
-        jButton6.setEnabled(false);
-        CheckWin();
-        checkMove();
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        String bla=randomButton();
-        if(isX) {
+        if (isX){
             jButton7.setText("X");
             jButton7.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/X2.png"));
+            jButton7.setEnabled(false);
             isX=false;
             btn7 = "X";
-            if(cpu && bla.equals("jButton2")) {
-                jButton2.setText("O");
-                jButton2.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton2.setEnabled(false);
-                isX=true;
-               btn2 = "O";
-               checkMove();
-            }
-            else if(cpu && bla.equals("jButton3")) {
-                jButton3.setText("O");
-                jButton3.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton3.setEnabled(false);
-                isX=true;
-               btn3 = "O";
-               checkMove();
-            }
-            else if(cpu && bla.equals("jButton4")) {
-                jButton4.setText("O");
-                jButton4.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton4.setEnabled(false);
-                isX=true;
-                btn4 = "O";
-                checkMove();
-            }
-            else if(cpu && bla.equals("jButton5")) {
-                jButton5.setText("O");
-                jButton5.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton5.setEnabled(false);
-                isX=true;
-                btn5 = "O";
-                checkMove();
-            }
-            else if(cpu && bla.equals("jButton6")) {
-                jButton6.setText("O");
-                jButton6.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton6.setEnabled(false);
-                isX=true;
-                btn6= "O";
-                checkMove();
-            }
-            else if(cpu && bla.equals("jButton1")) {
-                jButton1.setText("O");
-                jButton1.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton1.setEnabled(false);
-                isX=true;
-                btn1 = "O";
-                checkMove();
-            }
-            else if(cpu && bla.equals("jButton8")) {
-                jButton8.setText("O");
-                jButton8.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton8.setEnabled(false);
-                isX=true;
-                btn8 = "O";
-                checkMove();
-            }
-            else if(cpu && bla.equals("jButton9")) {
-                jButton9.setText("O");
-                jButton9.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton9.setEnabled(false);
-                isX=true;
-                btn9 = "O";
-                checkMove();
-            }
+            CheckWin();
+            
+            if (cpu)
+                {
+                    String bla=randomButton();
+                    if(bla.equals("jButton1")) {
+                         jButton1.setText("O");
+                         jButton1.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton1.setEnabled(false);
+                         isX=true;
+                         btn1 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton2")) {
+                         jButton2.setText("O");
+                         jButton2.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton2.setEnabled(false);
+                         isX=true;
+                         btn2 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton3")) {
+                         jButton3.setText("O");
+                         jButton3.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton3.setEnabled(false);
+                         isX=true;
+                         btn3 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton4")) {
+                         jButton4.setText("O");
+                         jButton4.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton4.setEnabled(false);
+                         isX=true;
+                         btn4 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton5")) {
+                         jButton5.setText("O");
+                         jButton5.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton5.setEnabled(false);
+                         isX=true;
+                         btn5 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton6")) {
+                         jButton6.setText("O");
+                         jButton6.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton6.setEnabled(false);
+                         isX=true;
+                         btn6 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton7")) {
+                         jButton7.setText("O");
+                         jButton7.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton7.setEnabled(false);
+                         isX=true;
+                         btn7 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton8")) {
+                         jButton8.setText("O");
+                         jButton8.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton8.setEnabled(false);
+                         isX=true;
+                         btn8 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton9")) {
+                         jButton9.setText("O");
+                         jButton9.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton9.setEnabled(false);
+                         isX=true;
+                         btn9 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+             }
         }
-        else {
+        else{
             jButton7.setText("O");
             jButton7.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+            jButton7.setEnabled(false);
             isX=true;
+            btn7 = "O";
+            CheckWin();
         }
-        jButton7.setEnabled(false);
-        btn7 = jButton7.getText();
-        CheckWin();
-        checkMove();
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        String bla=randomButton();
-        if(isX) {
+        if (isX){
             jButton8.setText("X");
             jButton8.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/X2.png"));
+            jButton8.setEnabled(false);
             isX=false;
             btn8 = "X";
-            if(cpu && bla.equals("jButton2")) {
-                jButton2.setText("O");
-                jButton2.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton2.setEnabled(false);
-                isX=true;
-                btn2 = "O";
-                checkMove();
-            }
-            else if(cpu && bla.equals("jButton3")) {
-                jButton3.setText("O");
-                jButton3.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton3.setEnabled(false);
-                isX=true;
-                btn3 = "O";
-                checkMove();
-            }
-            else if(cpu && bla.equals("jButton4")) {
-                jButton4.setText("O");
-                jButton4.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton4.setEnabled(false);
-                isX=true;
-                btn4 = "O";
-                checkMove();
-            }
-            else if(cpu && bla.equals("jButton5")) {
-                jButton5.setText("O");
-                jButton5.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton5.setEnabled(false);
-                isX=true;
-                btn5 = "O";
-                checkMove();
-            }
-            else if(cpu && bla.equals("jButton6")) {
-                jButton6.setText("O");
-                jButton6.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton6.setEnabled(false);
-                isX=true;
-                btn6 = "O";
-                checkMove();
-            }
-            else if(cpu && bla.equals("jButton7")) {
-                jButton7.setText("O");
-                jButton7.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton7.setEnabled(false);
-                isX=true;
-                btn7 = "O";
-                checkMove();
-            }
-            else if(cpu && bla.equals("jButton1")) {
-                jButton1.setText("O");
-                jButton1.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton1.setEnabled(false);
-                isX=true;
-                btn1 = "O";
-                checkMove();
-            }
-            else if(cpu && bla.equals("jButton9")) {
-                jButton9.setText("O");
-                jButton9.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton9.setEnabled(false);
-                isX=true;
-                btn9 = "O";
-                checkMove();
-            }
+            CheckWin();
+            
+            if (cpu)
+                {
+                    String bla=randomButton();
+                    if(bla.equals("jButton1")) {
+                         jButton1.setText("O");
+                         jButton1.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton1.setEnabled(false);
+                         isX=true;
+                         btn1 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton2")) {
+                         jButton2.setText("O");
+                         jButton2.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton2.setEnabled(false);
+                         isX=true;
+                         btn2 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton3")) {
+                         jButton3.setText("O");
+                         jButton3.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton3.setEnabled(false);
+                         isX=true;
+                         btn3 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton4")) {
+                         jButton4.setText("O");
+                         jButton4.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton4.setEnabled(false);
+                         isX=true;
+                         btn4 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton5")) {
+                         jButton5.setText("O");
+                         jButton5.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton5.setEnabled(false);
+                         isX=true;
+                         btn5 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton6")) {
+                         jButton6.setText("O");
+                         jButton6.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton6.setEnabled(false);
+                         isX=true;
+                         btn6 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton7")) {
+                         jButton7.setText("O");
+                         jButton7.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton7.setEnabled(false);
+                         isX=true;
+                         btn7 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton8")) {
+                         jButton8.setText("O");
+                         jButton8.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton8.setEnabled(false);
+                         isX=true;
+                         btn8 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton9")) {
+                         jButton9.setText("O");
+                         jButton9.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton9.setEnabled(false);
+                         isX=true;
+                         btn9 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+             }
         }
-        else {
+        else{
             jButton8.setText("O");
             jButton8.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+            jButton8.setEnabled(false);
             isX=true;
-            btn8 = "O";            
+            btn8 = "O";
+            CheckWin();
         }
-        jButton8.setEnabled(false);
-        CheckWin();
-        checkMove();
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-            String bla=randomButton();
-        if(isX) {
+         if (isX){
             jButton9.setText("X");
             jButton9.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/X2.png"));
+            jButton9.setEnabled(false);
             isX=false;
             btn9 = "X";
-            if(cpu && bla.equals("jButton2")) {
-                jButton2.setText("O");
-                jButton2.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton2.setEnabled(false);
-                isX=true;
-                btn2 = "O";
-                checkMove(); 
-            }
-            else if(cpu && bla.equals("jButton3")) {
-                jButton3.setText("O");
-                jButton3.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton3.setEnabled(false);
-                isX=true;
-                btn3 = "O";
-                checkMove();
-            }
-            else if(cpu && bla.equals("jButton4")) {
-                jButton4.setText("O");
-                jButton4.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton4.setEnabled(false);
-                isX=true;
-                btn4 = "O";
-                checkMove();
-            }
-            else if(cpu && bla.equals("jButton5")) {
-                jButton5.setText("O");
-                jButton5.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton5.setEnabled(false);
-                isX=true;
-                btn5 = "O";
-                checkMove();
-            }
-            else if(cpu && bla.equals("jButton6")) {
-                jButton6.setText("O");
-                jButton6.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton6.setEnabled(false);
-                isX=true;
-                btn6 = "O";
-                checkMove();
+            CheckWin();
             
-            }
-            else if(cpu && bla.equals("jButton7")) {
-                jButton7.setText("O");
-                jButton7.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton7.setEnabled(false);
-                isX=true;
-                btn7 = "O";
-                checkMove();
-            }
-            else if(cpu && bla.equals("jButton8")) {
-                jButton8.setText("O");
-                jButton8.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton8.setEnabled(false);
-                isX=true;
-                btn8 = "O";
-                checkMove(); 
-            }
-            else if(cpu && bla.equals("jButton1")) {
-                jButton1.setText("O");
-                jButton1.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
-                jButton1.setEnabled(false);
-                isX=true;
-                btn1 = "O";
-                checkMove();
-            }
+            if (cpu)
+                {
+                    String bla=randomButton();
+                    if(bla.equals("jButton1")) {
+                         jButton1.setText("O");
+                         jButton1.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton1.setEnabled(false);
+                         isX=true;
+                         btn1 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton2")) {
+                         jButton2.setText("O");
+                         jButton2.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton2.setEnabled(false);
+                         isX=true;
+                         btn2 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton3")) {
+                         jButton3.setText("O");
+                         jButton3.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton3.setEnabled(false);
+                         isX=true;
+                         btn3 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton4")) {
+                         jButton4.setText("O");
+                         jButton4.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton4.setEnabled(false);
+                         isX=true;
+                         btn4 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton5")) {
+                         jButton5.setText("O");
+                         jButton5.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton5.setEnabled(false);
+                         isX=true;
+                         btn5 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton6")) {
+                         jButton6.setText("O");
+                         jButton6.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton6.setEnabled(false);
+                         isX=true;
+                         btn6 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton7")) {
+                         jButton7.setText("O");
+                         jButton7.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton7.setEnabled(false);
+                         isX=true;
+                         btn7 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton8")) {
+                         jButton8.setText("O");
+                         jButton8.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton8.setEnabled(false);
+                         isX=true;
+                         btn8 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+                    if(bla.equals("jButton9")) {
+                         jButton9.setText("O");
+                         jButton9.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+                         jButton9.setEnabled(false);
+                         isX=true;
+                         btn9 = "O";
+                         checkMove();
+                         CheckWin();
+                    }
+             }
         }
-        else {
+        else{
             jButton9.setText("O");
             jButton9.setDisabledIcon(new ImageIcon("src/tic/tac/toe/Images/O2.png"));
+            jButton9.setEnabled(false);
             isX=true;
             btn9 = "O";
-
+            CheckWin();
         }
-        jButton9.setEnabled(false);
-        CheckWin();
-        checkMove();
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButtonsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonsActionPerformed
