@@ -213,6 +213,7 @@ public class MainWindow extends javax.swing.JFrame {
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 300, 25));
 
         labelMove.setBackground(new java.awt.Color(255, 255, 255));
+        labelMove.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         labelMove.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(labelMove, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 420, -1, -1));
         labelMove.getAccessibleContext().setAccessibleParent(this);
@@ -278,10 +279,10 @@ public class MainWindow extends javax.swing.JFrame {
         jButtonpvc.setVisible(false);
         labelMove.setVisible(false);
     }
-    
+        
     private void done() {
-                Object[] options = {"Yes", "No"};
-                    jOptionPane1.showMessageDialog(rootPane, win);
+            Object[] options = {"Yes", "No"};
+            jOptionPane1.showMessageDialog(rootPane, win);
             int option =   jOptionPane1.showOptionDialog(rootPane, "Do you want to start again?", "Choose an option:", jOptionPane1.YES_NO_OPTION, jOptionPane1.QUESTION_MESSAGE, null, options, options[1]);
             if( option == jOptionPane1.YES_OPTION) {
                     yes_option();
@@ -305,7 +306,8 @@ public class MainWindow extends javax.swing.JFrame {
             }
             done();
         }
-        
+
+        else {
         if(btn4.equals(btn5) && btn4.equals(btn6)) {
             if (!isX) {
              win =  "Player one wins!";
@@ -319,7 +321,8 @@ public class MainWindow extends javax.swing.JFrame {
             }
            done();
         }
-        
+
+        else {
         if(btn7.equals(btn8) && btn7.equals(btn9)) {
             if (!isX) {
              win =  "Player one wins!";
@@ -333,7 +336,8 @@ public class MainWindow extends javax.swing.JFrame {
             }
             done();    
         }
-        
+
+        else {
         if(btn1.equals(btn4) && btn1.equals(btn7)) {
             if (!isX) {
                 win =  "Player one wins!";
@@ -347,7 +351,7 @@ public class MainWindow extends javax.swing.JFrame {
             }
             done();
         }
-        
+        else {
         if(btn2.equals(btn5) && btn2.equals(btn8)) {
             if (!isX) {
                 win =  "Player one wins!"; 
@@ -361,7 +365,8 @@ public class MainWindow extends javax.swing.JFrame {
             }
             done();
         }
-        
+
+        else {
         if(btn3.equals(btn6) && btn3.equals(btn9)) {
             if (!isX) {
                 win =  "Player one wins!";
@@ -376,6 +381,7 @@ public class MainWindow extends javax.swing.JFrame {
             done();
         }     
 
+        else {
         if(btn1.equals(btn5) && btn1.equals(btn9)) {
             if (!isX) {
                 win =  "Player one wins!";
@@ -389,7 +395,8 @@ public class MainWindow extends javax.swing.JFrame {
             }
             done();
         } 
- 
+
+        else {
         if(btn3.equals(btn5) && btn3.equals(btn7)) {
             if (!isX) {
                 win =  "Player one wins!";
@@ -403,6 +410,19 @@ public class MainWindow extends javax.swing.JFrame {
             }
             done();
         } 
+
+        else {//aici se testeaza daca este remiza
+               if( (btn1.equals("X") || btn1.equals("O")) && ( btn2.equals("X") || btn2.equals("O")) && ( btn3.equals("X") || btn3.equals("O")) && ( btn4.equals("X") || btn4.equals("O")) &&
+           ( btn5.equals("X") || btn5.equals("O")) && ( btn6.equals("X") || btn6.equals("O")) && ( btn7.equals("X") || btn7.equals("O")) && ( btn8.equals("X") || btn8.equals("O"))
+          && ( btn9.equals("X") || btn9.equals("O")) ) 
+               {
+               win =  "Remiza!";
+                jLabel2.setText("Player one: "+scoreX+"       Player two: "+scoreO);
+                done();
+               }
+           
+
+            } } } } } } } }
     }
     
     public void show_bg(boolean x) {//acesta functie se ocupa de ascunderea/afisarea continutului
@@ -1425,6 +1445,9 @@ public class MainWindow extends javax.swing.JFrame {
         jButtonpvc.setVisible(true);
         jButtonpvp.setEnabled(true);
         jButtonpvc.setEnabled(true);
+        scoreX=0;
+        scoreO=0;
+        jLabel2.setText("Player one: "+scoreX+"       Player two: "+scoreO);
     }//GEN-LAST:event_jButtonsActionPerformed
 
     private void formComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentHidden
@@ -1451,7 +1474,7 @@ public class MainWindow extends javax.swing.JFrame {
         jButtonpvc.setEnabled(false);
         cpu=true;
         move=1;
-        Player1="CPU";
+        Player1="Player 1";
         labelMove.setVisible(true);
         checkMove();
     }//GEN-LAST:event_jButtonpvcActionPerformed
